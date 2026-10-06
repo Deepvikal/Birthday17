@@ -19,3 +19,55 @@ body{min-height:100vh;display:flex;justify-content:center;align-items:center;pad
 .memory-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:17px}.memory{border:0;padding:0;height:150px;border-radius:18px;overflow:hidden;cursor:pointer;background:#eee}.memory img{width:100%;height:100%;object-fit:cover;display:block;transition:.2s}.memory:hover img{transform:scale(1.04)}
 .wish{text-align:center}.heart{font-size:50px;animation:pulse 1.4s infinite}@keyframes pulse{50%{transform:scale(1.12)}}
 .photo-viewer{position:absolute;inset:0;background:#000eb;z-index:20;display:none;align-items:center;justify-content:center;padding:18px}.photo-viewer.show{display:flex}.photo-viewer img{max-width:100%;max-height:80%;object-fit:contain;border-radius:16px}.photo-close{position:absolute;top:18px;right:18px;background:#fff}
+.miss{position:fixed;left:50%;top:22%;transform:translate(-50%,-50%);z-index:50;pointer-events:none;font-weight:800;font-size:22px;color:#fff;text-shadow:0 3px 18px #000;animation:miss 1.35s ease forwards}@keyframes miss{0%{opacity:0;transform:translate(-50%,10px) scale(.8)}15%{opacity:1}100%{opacity:0;transform:translate(-50%,-90px) scale(1.08)}}
+@media(max-width:430px){.phone,.content{min-height:650px}.center{margin-top:30px}.app{min-height:96px}.memory{height:125px}}
+</style>
+</head>
+<body>
+<div class="phone" id="phone">
+<div class="content">
+<div class="top"><div><div class="hello">A little world made for</div><div class="name">Vaishnavi ♡</div></div><button class="mute" id="muteBtn">🔊</button></div>
+<div class="center"><h1>Welcome to your little world ✨</h1><p>Tap around. There's something waiting inside every app.</p></div>
+<div class="apps">
+<button class="app" data-page="music"><div class="icon">🎵</div><span>Our Songs</span></button>
+<button class="app" data-page="memories"><div class="icon">📸</div><span>Memories</span></button>
+<button class="app" data-page="notes"><div class="icon">💌</div><span>My Note</span></button>
+<button class="app" data-page="wishes"><div class="icon">🌷</div><span>For Your Life</span></button>
+<button class="app" data-page="secret"><div class="icon">🔐</div><span>Secret</span></button>
+<button class="app" data-page="about"><div class="icon">✨</div><span>Why You</span></button>
+</div><div class="bottom">Made with love, just for you ♡</div></div>
+<div class="modal" id="modal"><div class="sheet"><button class="close" id="close">×</button><div id="content"></div></div></div>
+<div class="photo-viewer" id="photoViewer"><button class="photo-close" id="photoClose">×</button><img id="largePhoto" src="" alt="Memory"></div>
+<audio id="backgroundMusic" loop><source src="music/background.mp3" type="audio/mpeg"></audio>
+</div>
+<script>
+(()=>{const modal=document.getElementById("modal"),content=document.getElementById("content"),phone=document.getElementById("phone"),bg=document.getElementById("backgroundMusic"),mute=document.getElementById("muteBtn"),viewer=document.getElementById("photoViewer"),large=document.getElementById("largePhoto");
+const pages={
+music:{title:"Our Songs 🎵",sub:"Three songs I picked just for you.",html:`<div class="songs">
+<div class="song"><strong>Song One ♡</strong><small>Change this title</small><audio controls><source src="music/song1.mp3" type="audio/mpeg"></audio></div>
+<div class="song"><strong>Song Two ♡</strong><small>Change this title</small><audio controls><source src="music/song2.mp3" type="audio/mpeg"></audio></div>
+<div class="song"><strong>Song Three ♡</strong><small>Change this title</small><audio controls><source src="music/song3.mp3" type="audio/mpeg"></audio></div></div><div class="note">These are the three songs I wanted you to have here — one little soundtrack for our memories. ♡</div>`},
+memories:{title:"Our Memories 📸",sub:"Tap any photo to open it.",html:`<div class="memory-grid">
+<button class="memory" data-photo="images/photo1.jpg"><img src="images/photo1.jpg" alt="Memory 1"></button>
+<button class="memory" data-photo="images/photo2.jpg"><img src="images/photo2.jpg" alt="Memory 2"></button>
+<button class="memory" data-photo="images/photo3.jpg"><img src="images/photo3.jpg" alt="Memory 3"></button>
+<button class="memory" data-photo="images/photo4.jpg"><img src="images/photo4.jpg" alt="Memory 4"></button>
+<button class="memory" data-photo="images/photo5.jpg"><img src="images/photo5.jpg" alt="Memory 5"></button>
+<button class="memory" data-photo="images/photo6.jpg"><img src="images/photo6.jpg" alt="Memory 6"></button></div><div class="note">Replace these files with your actual photos.</div>`},
+notes:{title:"A Note For You 💌",sub:"Something I wanted you to have.",html:`<div class="note">You are one of those people who quietly becomes a very important part of someone's life.<br><br>Thank you for the laughs, the talks, the little arguments, the random moments and everything in between.<br><br>I hope you always remember how genuinely special you are to me. ♡</div>`},
+wishes:{title:"For Your Life 🌷",sub:"Wishes for everything ahead.",html:`<div class="wish"><div class="heart">💗</div><div class="note">I wish you a life full of things that make you smile for real.<br><br>I hope you achieve the dreams you are working for, meet kind people, keep your spark and never lose the little things that make you you.<br><br>May the years ahead be gentle, exciting and beautiful.</div></div>`},
+secret:{title:"Secret Room 🔐",sub:"You found something.",html:`<div class="note" style="text-align:center">Okay... this one is just between us. 👀<br><br><b>I miss you.</b><br><br>And apparently this website is not helping me hide it.</div>`},
+about:{title:"Why You ✨",sub:"The part I couldn't fit into one birthday message.",html:`<div class="note">You're important to me in ways that are difficult to put into a single paragraph.<br><br>So instead of making one long message, I made you a little world where every app holds a different piece of it. ♡</div>`}};
+function openPage(k){const p=pages[k];content.innerHTML="<h2>"+p.title+"</h2><div class='sub'>"+p.sub+"</div>"+p.html;modal.classList.add("show");content.querySelectorAll(".memory").forEach(x=>x.addEventListener("click",()=>{large.src=x.dataset.photo;viewer.classList.add("show")}))}
+document.querySelectorAll(".app").forEach(b=>b.addEventListener("click",()=>openPage(b.dataset.page)));
+document.getElementById("close").addEventListener("click",()=>modal.classList.remove("show"));
+modal.addEventListener("click",e=>{if(e.target===modal)modal.classList.remove("show")});
+document.getElementById("photoClose").addEventListener("click",()=>{viewer.classList.remove("show");large.src=""});
+let muted=true;
+mute.addEventListener("click",e=>{e.stopPropagation();bg.muted=!bg.muted;muted=bg.muted;mute.textContent=muted?"🔇":"🔊";if(!muted)bg.play().catch(()=>{})});
+let last=0;
+phone.addEventListener("pointerdown",e=>{if(e.target.closest("#muteBtn")||e.target.closest("audio"))return;let now=Date.now();if(now-last<350)return;last=now;let m=document.createElement("div");m.className="miss";m.textContent="I miss you ♡";document.body.appendChild(m);setTimeout(()=>m.remove(),1400);if(muted===false)bg.play().catch(()=>{})});
+})();
+</script>
+</body>
+</html>
