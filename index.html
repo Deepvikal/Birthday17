@@ -7,7 +7,12 @@
 
 <style>
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%;font-family:system-ui,sans-serif}
+
+html,body{
+  margin:0;
+  min-height:100%;
+  font-family:system-ui,sans-serif
+}
 
 body{
   min-height:100vh;
@@ -44,8 +49,15 @@ body{
   align-items:flex-start
 }
 
-.hello{font-size:12px;opacity:.8}
-.name{font-size:25px;font-weight:800}
+.hello{
+  font-size:12px;
+  opacity:.8
+}
+
+.name{
+  font-size:25px;
+  font-weight:800
+}
 
 .mute{
   border:1px solid #ffffff4d;
@@ -80,6 +92,8 @@ body{
   gap:12px
 }
 
+/* GLASS APP BUTTONS */
+
 .app{
   border:1px solid #ffffff38;
   background:#ffffff24;
@@ -88,19 +102,27 @@ body{
   padding:15px 7px;
   min-height:106px;
   cursor:pointer;
+
   backdrop-filter:blur(10px);
   -webkit-backdrop-filter:blur(10px);
+
+  box-shadow:
+    0 8px 25px #0004,
+    inset 0 1px 1px #ffffff25;
+
   transition:.18s
 }
 
 .app:hover{
-  transform:translateY(-3px)
+  transform:translateY(-3px);
+  background:#ffffff2b
 }
 
 .app:active{
   transform:scale(.94);
   filter:blur(2px);
   background:#ffffff40;
+
   backdrop-filter:blur(20px);
   -webkit-backdrop-filter:blur(20px)
 }
@@ -125,10 +147,17 @@ body{
   opacity:.75
 }
 
+/* GLASS MODAL */
+
 .modal{
   position:absolute;
   inset:0;
-  background:#0a070ab8;
+
+  background:#00000055;
+
+  backdrop-filter:blur(3px);
+  -webkit-backdrop-filter:blur(3px);
+
   z-index:10;
   display:none;
   align-items:flex-end;
@@ -139,14 +168,27 @@ body{
   display:flex
 }
 
+/* TRANSPARENT GLASS SHEET */
+
 .sheet{
   width:100%;
   max-height:88%;
   overflow:auto;
-  background:#fffafd;
-  color:#241c22;
+
+  background:#ffffff20;
+  color:#fff;
+
+  border:1px solid #ffffff38;
   border-radius:28px;
   padding:22px;
+
+  backdrop-filter:blur(20px) saturate(130%);
+  -webkit-backdrop-filter:blur(20px) saturate(130%);
+
+  box-shadow:
+    0 10px 40px #0005,
+    inset 0 1px 1px #ffffff35;
+
   animation:up .25s ease
 }
 
@@ -155,15 +197,17 @@ body{
     transform:translateY(35px);
     opacity:0
   }
+
   to{
     transform:translateY(0);
     opacity:1
   }
 }
 
-.close,.photo-close{
+.close,
+.photo-close{
   border:0;
-  background:#f2e5ec;
+  background:#ffffffcc;
   color:#241c22;
   border-radius:50%;
   width:40px;
@@ -178,22 +222,36 @@ body{
 
 h2{
   font-size:25px;
-  margin:3px 45px 7px 0
+  margin:3px 45px 7px 0;
+  text-shadow:0 2px 10px #0006
 }
 
 .sub{
-  color:#8b7680;
+  color:#ffffffc7;
   font-size:13px
 }
 
+/* GLASS NOTES */
+
 .note{
-  background:#fff0f6;
+  background:#ffffff18;
+  border:1px solid #ffffff25;
+  color:#fff;
+
   border-radius:20px;
   padding:18px;
   margin-top:17px;
+
   line-height:1.75;
-  font-size:15px
+  font-size:15px;
+
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+
+  box-shadow:inset 0 1px 1px #ffffff20
 }
+
+/* SONGS */
 
 .songs{
   display:grid;
@@ -202,10 +260,17 @@ h2{
 }
 
 .song{
-  background:#241e23;
+  background:#00000045;
+  border:1px solid #ffffff25;
   color:#fff;
+
   border-radius:18px;
-  padding:15px
+  padding:15px;
+
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+
+  box-shadow:inset 0 1px 1px #ffffff15
 }
 
 .song strong{
@@ -213,13 +278,15 @@ h2{
 }
 
 .song small{
-  color:#cbbfc6
+  color:#ffffffb5
 }
 
 .song audio{
   width:100%;
   margin-top:10px
 }
+
+/* MEMORIES */
 
 .memory-grid{
   display:grid;
@@ -229,13 +296,16 @@ h2{
 }
 
 .memory{
-  border:0;
+  border:1px solid #ffffff30;
   padding:0;
   height:150px;
   border-radius:18px;
   overflow:hidden;
   cursor:pointer;
-  background:#eee
+  background:#ffffff18;
+
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px)
 }
 
 .memory img{
@@ -250,6 +320,8 @@ h2{
   transform:scale(1.04)
 }
 
+/* WISH */
+
 .wish{
   text-align:center
 }
@@ -260,17 +332,23 @@ h2{
 }
 
 @keyframes pulse{
-  50%{transform:scale(1.12)}
+  50%{
+    transform:scale(1.12)
+  }
 }
+
+/* PHOTO VIEWER */
 
 .photo-viewer{
   position:absolute;
   inset:0;
   background:#000eb;
   z-index:20;
+
   display:none;
   align-items:center;
   justify-content:center;
+
   padding:18px
 }
 
@@ -281,8 +359,10 @@ h2{
 .photo-viewer img{
   width:auto;
   height:auto;
+
   max-width:100%;
   max-height:80%;
+
   object-fit:contain;
   border-radius:16px
 }
@@ -294,37 +374,62 @@ h2{
   background:#fff
 }
 
+/* I MISS YOU */
+
 .miss{
   position:fixed;
+
   transform:translate(-50%,-50%);
+
   z-index:50;
   pointer-events:none;
+
   font-weight:800;
   font-size:22px;
   color:#fff;
+
   text-shadow:0 3px 18px #000;
+
   animation:miss 1.35s ease forwards
 }
 
 @keyframes miss{
+
   0%{
     opacity:0;
     transform:translate(-50%,-50%) scale(.8)
   }
+
   15%{
     opacity:1
   }
+
   100%{
     opacity:0;
     transform:translate(-50%,-100%) scale(1.08)
   }
 }
 
+/* MOBILE */
+
 @media(max-width:430px){
-  .phone,.content{min-height:650px}
-  .center{margin-top:30px}
-  .app{min-height:96px}
-  .memory{height:125px}
+
+  .phone,
+  .content{
+    min-height:650px
+  }
+
+  .center{
+    margin-top:30px
+  }
+
+  .app{
+    min-height:96px
+  }
+
+  .memory{
+    height:125px
+  }
 }
 </style>
 </head>
@@ -336,58 +441,71 @@ h2{
 <div class="content">
 
 <div class="top">
-  <div>
-    <div class="hello">A little world made for</div>
-    <div class="name">Vaishnavi ♡</div>
-  </div>
 
-  <button class="mute" id="muteBtn">🔇</button>
+<div>
+<div class="hello">A little world made for</div>
+<div class="name">Vaishnavi ♡</div>
 </div>
+
+<button class="mute" id="muteBtn">🔇</button>
+
+</div>
+
 
 <div class="center">
-  <h1>Welcome to your little world ✨</h1>
-  <p>Tap around. There's something waiting inside every app.</p>
+
+<h1>Welcome to your little world ✨</h1>
+
+<p>
+Tap around. There's something waiting inside every app.
+</p>
+
 </div>
+
 
 <div class="apps">
 
 <button class="app" data-page="music">
-  <div class="icon">🎵</div>
-  <span>Our Songs</span>
+<div class="icon">🎵</div>
+<span>Our Songs</span>
 </button>
 
 <button class="app" data-page="memories">
-  <div class="icon">📸</div>
-  <span>Memories</span>
+<div class="icon">📸</div>
+<span>Memories</span>
 </button>
 
 <button class="app" data-page="notes">
-  <div class="icon">💌</div>
-  <span>My Note</span>
+<div class="icon">💌</div>
+<span>My Note</span>
 </button>
 
 <button class="app" data-page="wishes">
-  <div class="icon">🌷</div>
-  <span>For Your Life</span>
+<div class="icon">🌷</div>
+<span>For Your Life</span>
 </button>
 
 <button class="app" data-page="secret">
-  <div class="icon">🔐</div>
-  <span>Secret</span>
+<div class="icon">🔐</div>
+<span>Secret</span>
 </button>
 
 <button class="app" data-page="about">
-  <div class="icon">✨</div>
-  <span>Why You</span>
+<div class="icon">✨</div>
+<span>Why You</span>
 </button>
 
 </div>
 
+
 <div class="bottom">
-  Made with love, just for you ♡
+Made with love, just for you ♡
 </div>
 
 </div>
+
+
+<!-- APP MODAL -->
 
 <div class="modal" id="modal">
 
@@ -401,6 +519,9 @@ h2{
 
 </div>
 
+
+<!-- PHOTO VIEWER -->
+
 <div class="photo-viewer" id="photoViewer">
 
 <button class="photo-close" id="photoClose">×</button>
@@ -409,14 +530,18 @@ h2{
 
 </div>
 
+
 <!-- BACKGROUND MUSIC -->
+
 <audio id="backgroundMusic" loop autoplay muted>
-  <source src="music/background.mp3" type="audio/mpeg">
+<source src="music/background.mp3" type="audio/mpeg">
 </audio>
 
 </div>
 
+
 <script>
+
 (()=>{
 
 const modal=document.getElementById("modal"),
@@ -427,86 +552,171 @@ mute=document.getElementById("muteBtn"),
 viewer=document.getElementById("photoViewer"),
 large=document.getElementById("largePhoto");
 
-/* ---------------- PAGES ---------------- */
+
+/* =========================
+   PAGES
+========================= */
 
 const pages={
+
 
 music:{
 title:"Our Songs 🎵",
 sub:"Kuch songs aapke liye.",
-html:`<div class="songs">
+
+html:`
+
+<div class="songs">
 
 <div class="song">
+
 <strong>Song One ♡</strong>
-<small>By my side 💞</small>
+
+<small>
+By my side 💞
+</small>
+
 <audio controls>
 <source src="music/song1.mp3" type="audio/mpeg">
 </audio>
+
 </div>
 
+
 <div class="song">
+
 <strong>Song Two ♡</strong>
-<small>First love 💌</small>
+
+<small>
+First love 💌
+</small>
+
 <audio controls>
 <source src="music/song2.mp3" type="audio/mpeg">
 </audio>
+
 </div>
 
+
 <div class="song">
+
 <strong>Song Three ♡</strong>
-<small>Behja 😗</small>
+
+<small>
+Behja 😗
+</small>
+
 <audio controls>
 <source src="music/song3.mp3" type="audio/mpeg">
 </audio>
+
 </div>
 
 </div>
+
 
 <div class="note">
-These are the three songs I wanted you to have here — one little soundtrack for our memories. ♡
-</div>`
+
+These are the three songs I wanted you to have here —
+one little soundtrack for our memories. ♡
+
+</div>
+
+`
 },
+
 
 memories:{
+
 title:"Our Memories 📸",
+
 sub:"Tap any photo to open it.",
-html:`<div class="memory-grid">
 
-<button class="memory" data-photo="images/photo1.jpg">
-<img src="images/photo1.jpg" alt="Memory 1">
+html:`
+
+<div class="memory-grid">
+
+<button class="memory"
+data-photo="images/photo1.jpg">
+
+<img
+src="images/photo1.jpg"
+alt="Memory 1">
+
 </button>
 
-<button class="memory" data-photo="images/photo2.jpg">
-<img src="images/photo2.jpg" alt="Memory 2">
+
+<button class="memory"
+data-photo="images/photo2.jpg">
+
+<img
+src="images/photo2.jpg"
+alt="Memory 2">
+
 </button>
 
-<button class="memory" data-photo="images/photo3.jpg">
-<img src="images/photo3.jpg" alt="Memory 3">
+
+<button class="memory"
+data-photo="images/photo3.jpg">
+
+<img
+src="images/photo3.jpg"
+alt="Memory 3">
+
 </button>
 
-<button class="memory" data-photo="images/photo4.jpg">
-<img src="images/photo4.jpg" alt="Memory 4">
+
+<button class="memory"
+data-photo="images/photo4.jpg">
+
+<img
+src="images/photo4.jpg"
+alt="Memory 4">
+
 </button>
 
-<button class="memory" data-photo="images/photo5.jpg">
-<img src="images/photo5.jpg" alt="Memory 5">
+
+<button class="memory"
+data-photo="images/photo5.jpg">
+
+<img
+src="images/photo5.jpg"
+alt="Memory 5">
+
 </button>
 
-<button class="memory" data-photo="images/photo6.jpg">
-<img src="images/photo6.jpg" alt="Memory 6">
+
+<button class="memory"
+data-photo="images/photo6.jpg">
+
+<img
+src="images/photo6.jpg"
+alt="Memory 6">
+
 </button>
 
 </div>
 
+
 <div class="note">
+
 Itte sare photo h but ye kuch special h😗.
-</div>`
+
+</div>
+
+`
 },
 
+
 notes:{
+
 title:"A Note For You 💌",
+
 sub:"Something I wanted you to have.",
-html:`<div class="note">
+
+html:`
+
+<div class="note">
 
 You are one of those people who quietly becomes a very important part of someone's life.
 
@@ -518,15 +728,25 @@ Thank you for the laughs, the talks, the little arguments, the random moments an
 
 I hope you always remember how genuinely special you are to me. ♡
 
-</div>`
+</div>
+
+`
 },
 
-wishes:{
-title:"For Your Life 🌷",
-sub:"Wishes for everything ahead.",
-html:`<div class="wish">
 
-<div class="heart">💗</div>
+wishes:{
+
+title:"For Your Life 🌷",
+
+sub:"Wishes for everything ahead.",
+
+html:`
+
+<div class="wish">
+
+<div class="heart">
+💗
+</div>
 
 <div class="note">
 
@@ -542,13 +762,23 @@ May the years ahead be gentle, exciting and beautiful.
 
 </div>
 
-</div>`
+</div>
+
+`
 },
 
+
 secret:{
+
 title:"Secret Room 🔐",
+
 sub:"You found something.",
-html:`<div class="note" style="text-align:center">
+
+html:`
+
+<div
+class="note"
+style="text-align:center">
 
 Okay... this one is just between us. 👀
 
@@ -560,13 +790,21 @@ Okay... this one is just between us. 👀
 
 And apparently this website is not helping me hide it.
 
-</div>`
+</div>
+
+`
 },
 
+
 about:{
+
 title:"Why You ✨",
+
 sub:"The part I couldn't fit into one birthday message.",
-html:`<div class="note">
+
+html:`
+
+<div class="note">
 
 You're important to me in ways that are difficult to put into a single paragraph.
 
@@ -574,12 +812,17 @@ You're important to me in ways that are difficult to put into a single paragraph
 
 So instead of making one long message, I made you a little world where every app holds a different piece of it. ♡
 
-</div>`
+</div>
+
+`
 }
 
 };
 
-/* ---------------- OPEN APP ---------------- */
+
+/* =========================
+   OPEN APP
+========================= */
 
 function openPage(k){
 
@@ -592,138 +835,199 @@ p.html;
 
 modal.classList.add("show");
 
-/* Make sure only ONE song can play */
+
+/* ONLY ONE SONG AT A TIME */
+
 const songs=content.querySelectorAll("audio");
 
 songs.forEach(song=>{
-  song.addEventListener("play",()=>{
-    songs.forEach(other=>{
-      if(other!==song){
-        other.pause();
-      }
-    });
-  });
-});
 
-/* Memory click */
+song.addEventListener("play",()=>{
 
-content.querySelectorAll(".memory").forEach(x=>
-  x.addEventListener("click",()=>{
-    large.src=x.dataset.photo;
-    viewer.classList.add("show");
-  })
-);
+songs.forEach(other=>{
+
+if(other!==song){
+
+other.pause();
 
 }
 
-/* ---------------- APP BUTTONS ---------------- */
+});
 
-document.querySelectorAll(".app").forEach(b=>
-  b.addEventListener("click",()=>openPage(b.dataset.page))
-);
+});
 
-/* ---------------- CLOSE MODAL ---------------- */
+});
 
-document.getElementById("close").addEventListener("click",()=>
-  modal.classList.remove("show")
-);
+
+/* MEMORY CLICK */
+
+content.querySelectorAll(".memory").forEach(x=>{
+
+x.addEventListener("click",()=>{
+
+large.src=x.dataset.photo;
+
+viewer.classList.add("show");
+
+});
+
+});
+
+}
+
+
+/* =========================
+   APP BUTTONS
+========================= */
+
+document.querySelectorAll(".app").forEach(b=>{
+
+b.addEventListener("click",()=>{
+
+openPage(b.dataset.page);
+
+});
+
+});
+
+
+/* =========================
+   CLOSE MODAL
+========================= */
+
+document.getElementById("close").addEventListener("click",()=>{
+
+modal.classList.remove("show");
+
+});
+
 
 modal.addEventListener("click",e=>{
-  if(e.target===modal)
-    modal.classList.remove("show");
+
+if(e.target===modal){
+
+modal.classList.remove("show");
+
+}
+
 });
 
-/* ---------------- PHOTO VIEWER ---------------- */
+
+/* =========================
+   PHOTO VIEWER
+========================= */
 
 document.getElementById("photoClose").addEventListener("click",()=>{
-  viewer.classList.remove("show");
-  large.src="";
+
+viewer.classList.remove("show");
+
+large.src="";
+
 });
 
-/* ---------------- BACKGROUND MUSIC ---------------- */
 
-/*
-  Autoplay is attempted immediately.
-  Browsers may allow muted autoplay but block
-  automatic audio with sound.
-*/
+/* =========================
+   BACKGROUND MUSIC
+========================= */
 
 bg.muted=true;
 
 bg.play().catch(()=>{});
 
-/* ---------------- MUTE BUTTON ---------------- */
+
+/* =========================
+   MUTE BUTTON
+========================= */
 
 let muted=true;
 
 mute.addEventListener("click",e=>{
 
-  e.stopPropagation();
+e.stopPropagation();
 
-  bg.muted=!bg.muted;
+bg.muted=!bg.muted;
 
-  muted=bg.muted;
+muted=bg.muted;
 
-  mute.textContent=muted?"🔇":"🔊";
+mute.textContent=muted?"🔇":"🔊";
 
-  if(!muted){
-    bg.play().catch(()=>{});
-  }
+if(!muted){
+
+bg.play().catch(()=>{});
+
+}
 
 });
 
-/* ---------------- FIRST USER INTERACTION ---------------- */
 
-/*
-  Once the user interacts with the page,
-  try starting the background music.
-*/
+/* =========================
+   START MUSIC AFTER INTERACTION
+========================= */
 
 document.addEventListener("pointerdown",()=>{
-  if(!muted){
-    bg.play().catch(()=>{});
-  }
+
+if(!muted){
+
+bg.play().catch(()=>{});
+
+}
+
 },{once:true});
 
-/* ---------------- I MISS YOU ---------------- */
+
+/* =========================
+   I MISS YOU TOUCH EFFECT
+========================= */
 
 let last=0;
 
 phone.addEventListener("pointerdown",e=>{
 
-  if(
-    e.target.closest("#muteBtn") ||
-    e.target.closest("audio") ||
-    e.target.closest(".app") ||
-    e.target.closest(".modal")
-  ) return;
+if(
+e.target.closest("#muteBtn") ||
+e.target.closest("audio") ||
+e.target.closest(".app") ||
+e.target.closest(".modal")
+)return;
 
-  let now=Date.now();
 
-  if(now-last<350) return;
+let now=Date.now();
 
-  last=now;
+if(now-last<350)
+return;
 
-  let m=document.createElement("div");
+last=now;
 
-  m.className="miss";
-  m.textContent="I miss you ♡";
 
-  /* EXACT TOUCH POSITION */
+let m=document.createElement("div");
 
-  m.style.left=e.clientX+"px";
-  m.style.top=e.clientY+"px";
+m.className="miss";
 
-  document.body.appendChild(m);
+m.textContent="I miss you ♡";
 
-  setTimeout(()=>m.remove(),1400);
 
-  if(muted===false)
-    bg.play().catch(()=>{});
+/* EXACT TOUCH POSITION */
+
+m.style.left=e.clientX+"px";
+m.style.top=e.clientY+"px";
+
+
+document.body.appendChild(m);
+
+
+setTimeout(()=>m.remove(),1400);
+
+
+if(muted===false){
+
+bg.play().catch(()=>{});
+
+}
 
 });
 
 })();
+
 </script>
 
 </body>
