@@ -147,34 +147,6 @@ body{
   opacity:.75
 }
 
-
-/* =========================
-   FALLING GIF
-========================= */
-
-.falling-gif{
-  position:absolute;
-
-  width:64px;
-  height:64px;
-
-  object-fit:contain;
-
-  pointer-events:none;
-
-  /* Behind all buttons/content */
-  z-index:1;
-
-  filter:drop-shadow(0 5px 10px #0008);
-
-  will-change:transform,left,top;
-
-  opacity:0;
-
-  transition:opacity .15s ease
-}
-
-
 /* GLASS MODAL */
 
 .modal{
@@ -195,7 +167,6 @@ body{
 .modal.show{
   display:flex
 }
-
 
 /* TRANSPARENT GLASS SHEET */
 
@@ -260,7 +231,6 @@ h2{
   font-size:13px
 }
 
-
 /* GLASS NOTES */
 
 .note{
@@ -280,7 +250,6 @@ h2{
 
   box-shadow:inset 0 1px 1px #ffffff20
 }
-
 
 /* SONGS */
 
@@ -317,7 +286,6 @@ h2{
   margin-top:10px
 }
 
-
 /* MEMORIES */
 
 .memory-grid{
@@ -352,7 +320,6 @@ h2{
   transform:scale(1.04)
 }
 
-
 /* WISH */
 
 .wish{
@@ -369,7 +336,6 @@ h2{
     transform:scale(1.12)
   }
 }
-
 
 /* PHOTO VIEWER */
 
@@ -408,7 +374,6 @@ h2{
   background:#fff
 }
 
-
 /* I MISS YOU */
 
 .miss{
@@ -445,7 +410,6 @@ h2{
   }
 }
 
-
 /* MOBILE */
 
 @media(max-width:430px){
@@ -466,32 +430,13 @@ h2{
   .memory{
     height:125px
   }
-
-  .falling-gif{
-    width:60px;
-    height:60px
-  }
 }
-
 </style>
 </head>
 
 <body>
 
 <div class="phone" id="phone">
-
-
-<!-- =========================
-     FALLING GIF
-========================= -->
-
-<img
-  id="fallingGif"
-  class="falling-gif"
-  src=""
-  alt=""
->
-
 
 <div class="content">
 
@@ -560,9 +505,7 @@ I really miss you moti ♡
 </div>
 
 
-<!-- =========================
-     APP MODAL
-========================= -->
+<!-- APP MODAL -->
 
 <div class="modal" id="modal">
 
@@ -577,9 +520,7 @@ I really miss you moti ♡
 </div>
 
 
-<!-- =========================
-     PHOTO VIEWER
-========================= -->
+<!-- PHOTO VIEWER -->
 
 <div class="photo-viewer" id="photoViewer">
 
@@ -590,17 +531,10 @@ I really miss you moti ♡
 </div>
 
 
-<!-- =========================
-     BACKGROUND MUSIC
-========================= -->
+<!-- BACKGROUND MUSIC -->
 
 <audio id="backgroundMusic" loop autoplay muted>
-
-<source
-  src="music/background.mp3"
-  type="audio/mpeg"
->
-
+<source src="music/background.mp3" type="audio/mpeg">
 </audio>
 
 </div>
@@ -616,276 +550,7 @@ phone=document.getElementById("phone"),
 bg=document.getElementById("backgroundMusic"),
 mute=document.getElementById("muteBtn"),
 viewer=document.getElementById("photoViewer"),
-large=document.getElementById("largePhoto"),
-fallingGif=document.getElementById("fallingGif");
-
-
-/* =========================
-   FALLING GIF SYSTEM
-========================= */
-
-const gifList=[
-
-  "images/gif1.gif",
-  "images/gif2.gif",
-  "images/gif3.gif",
-  "images/gif4.gif",
-  "images/gif5.gif"
-
-];
-
-let gifIndex=0;
-
-let gifX=50;
-let gifY=50;
-
-let velocityX=1.8;
-let velocityY=2;
-
-let rotation=0;
-let rotationSpeed=3;
-
-const gifSize=64;
-
-
-/* RANDOM NUMBER */
-
-function random(min,max){
-
-  return Math.random()*(max-min)+min;
-
-}
-
-
-/* =========================
-   CHANGE GIF
-========================= */
-
-function nextGif(){
-
-  /*
-    Fade out current GIF
-  */
-
-  fallingGif.style.opacity="0";
-
-
-  setTimeout(()=>{
-
-    /*
-      Select next GIF
-    */
-
-    fallingGif.src=gifList[gifIndex];
-
-
-    gifIndex++;
-
-    if(gifIndex>=gifList.length){
-
-      gifIndex=0;
-
-    }
-
-
-    /*
-      Get available area
-    */
-
-    const maxX=
-      phone.clientWidth-gifSize;
-
-    const maxY=
-      phone.clientHeight-gifSize;
-
-
-    /*
-      Random starting position
-    */
-
-    gifX=random(5,Math.max(6,maxX-5));
-
-    gifY=random(5,Math.max(6,maxY-5));
-
-
-    /*
-      Random movement direction
-    */
-
-    velocityX=random(-2.8,2.8);
-
-    velocityY=random(-2.8,2.8);
-
-
-    /*
-      Prevent extremely slow movement
-    */
-
-    if(Math.abs(velocityX)<0.9){
-
-      velocityX=
-        velocityX<0
-        ?-1.3
-        :1.3;
-
-    }
-
-
-    if(Math.abs(velocityY)<0.9){
-
-      velocityY=
-        velocityY<0
-        ?-1.3
-        :1.3;
-
-    }
-
-
-    /*
-      Random spinning speed
-    */
-
-    rotationSpeed=random(2.5,6);
-
-
-    /*
-      Random clockwise / anticlockwise
-    */
-
-    if(Math.random()<0.5){
-
-      rotationSpeed*=-1;
-
-    }
-
-
-    rotation=random(0,360);
-
-
-    /*
-      Show GIF
-    */
-
-    fallingGif.style.opacity="1";
-
-
-  },150);
-
-}
-
-
-/* =========================
-   BOUNCING + SPINNING
-========================= */
-
-function animateGif(){
-
-  const maxX=
-    phone.clientWidth-gifSize;
-
-  const maxY=
-    phone.clientHeight-gifSize;
-
-
-  /*
-    Move
-  */
-
-  gifX+=velocityX;
-  gifY+=velocityY;
-
-
-  /*
-    LEFT EDGE
-  */
-
-  if(gifX<=0){
-
-    gifX=0;
-
-    velocityX=
-      Math.abs(velocityX);
-
-  }
-
-
-  /*
-    RIGHT EDGE
-  */
-
-  if(gifX>=maxX){
-
-    gifX=maxX;
-
-    velocityX=
-      -Math.abs(velocityX);
-
-  }
-
-
-  /*
-    TOP EDGE
-  */
-
-  if(gifY<=0){
-
-    gifY=0;
-
-    velocityY=
-      Math.abs(velocityY);
-
-  }
-
-
-  /*
-    BOTTOM EDGE
-  */
-
-  if(gifY>=maxY){
-
-    gifY=maxY;
-
-    velocityY=
-      -Math.abs(velocityY);
-
-  }
-
-
-  /*
-    SPIN ON ITS OWN AXIS
-  */
-
-  rotation+=rotationSpeed;
-
-
-  /*
-    Apply position + rotation
-  */
-
-  fallingGif.style.left=
-    gifX+"px";
-
-  fallingGif.style.top=
-    gifY+"px";
-
-  fallingGif.style.transform=
-    `rotate(${rotation}deg)`;
-
-
-  requestAnimationFrame(animateGif);
-
-}
-
-
-/*
-  Start GIF animation
-*/
-
-nextGif();
-
-setInterval(nextGif,2000);
-
-animateGif();
+large=document.getElementById("largePhoto");
 
 
 /* =========================
@@ -949,6 +614,8 @@ Behja 😗
 
 </div>
 
+
+
 `
 },
 
@@ -963,8 +630,7 @@ html:`
 
 <div class="memory-grid">
 
-<button
-class="memory"
+<button class="memory"
 data-photo="images/photo1.jpg">
 
 <img
@@ -974,8 +640,7 @@ alt="Memory 1">
 </button>
 
 
-<button
-class="memory"
+<button class="memory"
 data-photo="images/photo2.jpg">
 
 <img
@@ -985,8 +650,7 @@ alt="Memory 2">
 </button>
 
 
-<button
-class="memory"
+<button class="memory"
 data-photo="images/photo3.jpg">
 
 <img
@@ -996,8 +660,7 @@ alt="Memory 3">
 </button>
 
 
-<button
-class="memory"
+<button class="memory"
 data-photo="images/photo4.jpg">
 
 <img
@@ -1007,8 +670,7 @@ alt="Memory 4">
 </button>
 
 
-<button
-class="memory"
+<button class="memory"
 data-photo="images/photo5.jpg">
 
 <img
@@ -1018,8 +680,7 @@ alt="Memory 5">
 </button>
 
 
-<button
-class="memory"
+<button class="memory"
 data-photo="images/photo6.jpg">
 
 <img
@@ -1148,6 +809,8 @@ So instead of making one long message, I made you a little world where every app
 </div>
 
 `
+}
+
 };
 
 
@@ -1167,12 +830,9 @@ p.html;
 modal.classList.add("show");
 
 
-/*
-  ONLY ONE SONG AT A TIME
-*/
+/* ONLY ONE SONG AT A TIME */
 
-const songs=
-content.querySelectorAll("audio");
+const songs=content.querySelectorAll("audio");
 
 songs.forEach(song=>{
 
@@ -1193,9 +853,7 @@ other.pause();
 });
 
 
-/*
-  MEMORY CLICK
-*/
+/* MEMORY CLICK */
 
 content.querySelectorAll(".memory").forEach(x=>{
 
@@ -1231,9 +889,7 @@ openPage(b.dataset.page);
    CLOSE MODAL
 ========================= */
 
-document
-.getElementById("close")
-.addEventListener("click",()=>{
+document.getElementById("close").addEventListener("click",()=>{
 
 modal.classList.remove("show");
 
@@ -1255,9 +911,7 @@ modal.classList.remove("show");
    PHOTO VIEWER
 ========================= */
 
-document
-.getElementById("photoClose")
-.addEventListener("click",()=>{
+document.getElementById("photoClose").addEventListener("click",()=>{
 
 viewer.classList.remove("show");
 
@@ -1289,10 +943,7 @@ bg.muted=!bg.muted;
 
 muted=bg.muted;
 
-mute.textContent=
-muted
-?"🔇"
-:"🔊";
+mute.textContent=muted?"🔇":"🔊";
 
 if(!muted){
 
@@ -1342,33 +993,23 @@ return;
 last=now;
 
 
-let m=
-document.createElement("div");
+let m=document.createElement("div");
 
 m.className="miss";
 
 m.textContent="I miss you ♡";
 
 
-/*
-  EXACT TOUCH POSITION
-*/
+/* EXACT TOUCH POSITION */
 
-m.style.left=
-e.clientX+"px";
-
-m.style.top=
-e.clientY+"px";
+m.style.left=e.clientX+"px";
+m.style.top=e.clientY+"px";
 
 
 document.body.appendChild(m);
 
 
-setTimeout(()=>{
-
-m.remove();
-
-},1400);
+setTimeout(()=>m.remove(),1400);
 
 
 if(muted===false){
