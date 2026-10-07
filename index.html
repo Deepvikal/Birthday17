@@ -6,7 +6,9 @@
 <title>For Vaishnavi ♡</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box
+}
 
 html,body{
   margin:0;
@@ -30,17 +32,67 @@ body{
   overflow:hidden;
   border-radius:32px;
   color:#fff;
+
   background:
     linear-gradient(180deg,#0003,#000b),
     url("images/background.jpg") center/cover no-repeat;
+
   box-shadow:0 20px 70px #0007
 }
 
+
+/* =========================
+   GIF LAYER
+========================= */
+
+#gifLayer{
+  position:absolute;
+  inset:0;
+
+  z-index:1;
+
+  pointer-events:none !important;
+
+  overflow:hidden;
+}
+
+.falling-gif{
+  position:absolute;
+
+  width:64px;
+  height:64px;
+
+  object-fit:contain;
+
+  pointer-events:none !important;
+  user-select:none;
+
+  z-index:1;
+
+  filter:drop-shadow(0 5px 10px #0008);
+
+  will-change:left,top,transform;
+
+  opacity:0;
+
+  transition:opacity .15s ease;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
 .content{
   position:relative;
+
   z-index:2;
+
   padding:24px 18px 18px;
-  min-height:680px
+
+  min-height:680px;
+
+  pointer-events:auto;
 }
 
 .top{
@@ -92,15 +144,22 @@ body{
   gap:12px
 }
 
-/* GLASS APP BUTTONS */
+
+/* =========================
+   GLASS APP BUTTONS
+========================= */
 
 .app{
   border:1px solid #ffffff38;
   background:#ffffff24;
   color:#fff;
+
   border-radius:22px;
+
   padding:15px 7px;
+
   min-height:106px;
+
   cursor:pointer;
 
   backdrop-filter:blur(10px);
@@ -110,7 +169,11 @@ body{
     0 8px 25px #0004,
     inset 0 1px 1px #ffffff25;
 
-  transition:.18s
+  transition:.18s;
+
+  position:relative;
+
+  z-index:3;
 }
 
 .app:hover{
@@ -120,7 +183,9 @@ body{
 
 .app:active{
   transform:scale(.94);
+
   filter:blur(2px);
+
   background:#ffffff40;
 
   backdrop-filter:blur(20px);
@@ -139,18 +204,26 @@ body{
 
 .bottom{
   position:absolute;
+
   left:18px;
   right:18px;
   bottom:18px;
+
   text-align:center;
+
   font-size:12px;
+
   opacity:.75
 }
 
-/* GLASS MODAL */
+
+/* =========================
+   GLASS MODAL
+========================= */
 
 .modal{
   position:absolute;
+
   inset:0;
 
   background:#00000055;
@@ -159,8 +232,11 @@ body{
   -webkit-backdrop-filter:blur(3px);
 
   z-index:10;
+
   display:none;
+
   align-items:flex-end;
+
   padding:10px
 }
 
@@ -168,18 +244,26 @@ body{
   display:flex
 }
 
-/* TRANSPARENT GLASS SHEET */
+
+/* =========================
+   TRANSPARENT GLASS SHEET
+========================= */
 
 .sheet{
   width:100%;
+
   max-height:88%;
+
   overflow:auto;
 
   background:#ffffff20;
+
   color:#fff;
 
   border:1px solid #ffffff38;
+
   border-radius:28px;
+
   padding:22px;
 
   backdrop-filter:blur(20px) saturate(130%);
@@ -193,6 +277,7 @@ body{
 }
 
 @keyframes up{
+
   from{
     transform:translateY(35px);
     opacity:0
@@ -202,17 +287,24 @@ body{
     transform:translateY(0);
     opacity:1
   }
+
 }
 
 .close,
 .photo-close{
   border:0;
+
   background:#ffffffcc;
+
   color:#241c22;
+
   border-radius:50%;
+
   width:40px;
   height:40px;
+
   font-size:20px;
+
   cursor:pointer
 }
 
@@ -222,27 +314,38 @@ body{
 
 h2{
   font-size:25px;
+
   margin:3px 45px 7px 0;
+
   text-shadow:0 2px 10px #0006
 }
 
 .sub{
   color:#ffffffc7;
+
   font-size:13px
 }
 
-/* GLASS NOTES */
+
+/* =========================
+   GLASS NOTES
+========================= */
 
 .note{
   background:#ffffff18;
+
   border:1px solid #ffffff25;
+
   color:#fff;
 
   border-radius:20px;
+
   padding:18px;
+
   margin-top:17px;
 
   line-height:1.75;
+
   font-size:15px;
 
   backdrop-filter:blur(12px);
@@ -251,20 +354,28 @@ h2{
   box-shadow:inset 0 1px 1px #ffffff20
 }
 
-/* SONGS */
+
+/* =========================
+   SONGS
+========================= */
 
 .songs{
   display:grid;
+
   gap:11px;
+
   margin-top:18px
 }
 
 .song{
   background:#00000045;
+
   border:1px solid #ffffff25;
+
   color:#fff;
 
   border-radius:18px;
+
   padding:15px;
 
   backdrop-filter:blur(12px);
@@ -283,25 +394,38 @@ h2{
 
 .song audio{
   width:100%;
+
   margin-top:10px
 }
 
-/* MEMORIES */
+
+/* =========================
+   MEMORIES
+========================= */
 
 .memory-grid{
   display:grid;
+
   grid-template-columns:repeat(2,1fr);
+
   gap:10px;
+
   margin-top:17px
 }
 
 .memory{
   border:1px solid #ffffff30;
+
   padding:0;
+
   height:150px;
+
   border-radius:18px;
+
   overflow:hidden;
+
   cursor:pointer;
+
   background:#ffffff18;
 
   backdrop-filter:blur(10px);
@@ -310,9 +434,13 @@ h2{
 
 .memory img{
   width:100%;
+
   height:100%;
+
   object-fit:cover;
+
   display:block;
+
   transition:.2s
 }
 
@@ -320,7 +448,10 @@ h2{
   transform:scale(1.04)
 }
 
-/* WISH */
+
+/* =========================
+   WISH
+========================= */
 
 .wish{
   text-align:center
@@ -328,25 +459,36 @@ h2{
 
 .heart{
   font-size:50px;
+
   animation:pulse 1.4s infinite
 }
 
 @keyframes pulse{
+
   50%{
     transform:scale(1.12)
   }
+
 }
 
-/* PHOTO VIEWER */
+
+/* =========================
+   PHOTO VIEWER
+========================= */
 
 .photo-viewer{
   position:absolute;
+
   inset:0;
+
   background:#000eb;
+
   z-index:20;
 
   display:none;
+
   align-items:center;
+
   justify-content:center;
 
   padding:18px
@@ -358,23 +500,32 @@ h2{
 
 .photo-viewer img{
   width:auto;
+
   height:auto;
 
   max-width:100%;
+
   max-height:80%;
 
   object-fit:contain;
+
   border-radius:16px
 }
 
 .photo-close{
   position:absolute;
+
   top:18px;
+
   right:18px;
+
   background:#fff
 }
 
-/* I MISS YOU */
+
+/* =========================
+   I MISS YOU
+========================= */
 
 .miss{
   position:fixed;
@@ -382,10 +533,13 @@ h2{
   transform:translate(-50%,-50%);
 
   z-index:50;
+
   pointer-events:none;
 
   font-weight:800;
+
   font-size:22px;
+
   color:#fff;
 
   text-shadow:0 3px 18px #000;
@@ -397,7 +551,10 @@ h2{
 
   0%{
     opacity:0;
-    transform:translate(-50%,-50%) scale(.8)
+
+    transform:
+      translate(-50%,-50%)
+      scale(.8)
   }
 
   15%{
@@ -406,11 +563,18 @@ h2{
 
   100%{
     opacity:0;
-    transform:translate(-50%,-100%) scale(1.08)
+
+    transform:
+      translate(-50%,-100%)
+      scale(1.08)
   }
+
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:430px){
 
@@ -430,70 +594,167 @@ h2{
   .memory{
     height:125px
   }
+
+  .falling-gif{
+    width:60px;
+    height:60px
+  }
+
 }
+
 </style>
 </head>
 
+
 <body>
+
 
 <div class="phone" id="phone">
 
+
+<!-- =========================
+     FALLING GIF LAYER
+========================= -->
+
+<div id="gifLayer">
+
+<img
+  id="fallingGif"
+  class="falling-gif"
+  src=""
+  alt=""
+>
+
+</div>
+
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
 <div class="content">
+
 
 <div class="top">
 
 <div>
-<div class="hello">A little world made for</div>
-<div class="name">Vaishnavi ♡</div>
+
+<div class="hello">
+A little world made for
 </div>
 
-<button class="mute" id="muteBtn">🔇</button>
+<div class="name">
+Vaishnavi ♡
+</div>
+
+</div>
+
+
+<button
+  class="mute"
+  id="muteBtn">
+  🔇
+</button>
 
 </div>
 
 
 <div class="center">
 
-<h1>Happy Birthday to you Babu 💌</h1>
+<h1>
+Happy Birthday to you Babu 💌
+</h1>
 
 <p>
-
 </p>
 
 </div>
 
 
+<!-- =========================
+     APPS
+========================= -->
+
 <div class="apps">
 
-<button class="app" data-page="music">
-<div class="icon">🎵</div>
+
+<button
+  class="app"
+  data-page="music">
+
+<div class="icon">
+🎵
+</div>
+
 <span></span>
+
 </button>
 
-<button class="app" data-page="memories">
-<div class="icon">📸</div>
+
+<button
+  class="app"
+  data-page="memories">
+
+<div class="icon">
+📸
+</div>
+
 <span></span>
+
 </button>
 
-<button class="app" data-page="notes">
-<div class="icon">💌</div>
+
+<button
+  class="app"
+  data-page="notes">
+
+<div class="icon">
+💌
+</div>
+
 <span></span>
+
 </button>
 
-<button class="app" data-page="wishes">
-<div class="icon">🌷</div>
+
+<button
+  class="app"
+  data-page="wishes">
+
+<div class="icon">
+🌷
+</div>
+
 <span></span>
+
 </button>
 
-<button class="app" data-page="secret">
-<div class="icon">🔐</div>
+
+<button
+  class="app"
+  data-page="secret">
+
+<div class="icon">
+🔐
+</div>
+
 <span></span>
+
 </button>
 
-<button class="app" data-page="about">
-<div class="icon">✨</div>
+
+<button
+  class="app"
+  data-page="about">
+
+<div class="icon">
+✨
+</div>
+
 <span></span>
+
 </button>
+
 
 </div>
 
@@ -502,16 +763,25 @@ h2{
 I really miss you moti ♡
 </div>
 
+
 </div>
 
 
-<!-- APP MODAL -->
+<!-- =========================
+     APP MODAL
+========================= -->
 
-<div class="modal" id="modal">
+<div
+  class="modal"
+  id="modal">
 
 <div class="sheet">
 
-<button class="close" id="close">×</button>
+<button
+  class="close"
+  id="close">
+  ×
+</button>
 
 <div id="content"></div>
 
@@ -520,22 +790,44 @@ I really miss you moti ♡
 </div>
 
 
-<!-- PHOTO VIEWER -->
+<!-- =========================
+     PHOTO VIEWER
+========================= -->
 
-<div class="photo-viewer" id="photoViewer">
+<div
+  class="photo-viewer"
+  id="photoViewer">
 
-<button class="photo-close" id="photoClose">×</button>
+<button
+  class="photo-close"
+  id="photoClose">
+  ×
+</button>
 
-<img id="largePhoto" src="" alt="Memory">
+<img
+  id="largePhoto"
+  src=""
+  alt="Memory">
 
 </div>
 
 
-<!-- BACKGROUND MUSIC -->
+<!-- =========================
+     BACKGROUND MUSIC
+========================= -->
 
-<audio id="backgroundMusic" loop autoplay muted>
-<source src="music/background.mp3" type="audio/mpeg">
+<audio
+  id="backgroundMusic"
+  loop
+  autoplay
+  muted>
+
+<source
+  src="music/background.mp3"
+  type="audio/mpeg">
+
 </audio>
+
 
 </div>
 
@@ -544,40 +836,328 @@ I really miss you moti ♡
 
 (()=>{
 
-const modal=document.getElementById("modal"),
-content=document.getElementById("content"),
-phone=document.getElementById("phone"),
-bg=document.getElementById("backgroundMusic"),
-mute=document.getElementById("muteBtn"),
-viewer=document.getElementById("photoViewer"),
-large=document.getElementById("largePhoto");
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const modal =
+  document.getElementById("modal");
+
+const content =
+  document.getElementById("content");
+
+const phone =
+  document.getElementById("phone");
+
+const bg =
+  document.getElementById("backgroundMusic");
+
+const mute =
+  document.getElementById("muteBtn");
+
+const viewer =
+  document.getElementById("photoViewer");
+
+const large =
+  document.getElementById("largePhoto");
+
+const fallingGif =
+  document.getElementById("fallingGif");
+
+
+/* =========================
+   FALLING GIF SYSTEM
+========================= */
+
+const gifList = [
+
+  "images/gif1.gif",
+  "images/gif2.gif",
+  "images/gif3.gif",
+  "images/gif4.gif",
+  "images/gif5.gif"
+
+];
+
+
+let gifIndex = 0;
+
+let gifX = 50;
+let gifY = 50;
+
+let velocityX = 2;
+let velocityY = 2;
+
+let rotation = 0;
+
+let rotationSpeed = 3;
+
+const gifSize = 64;
+
+
+/* RANDOM */
+
+function random(min,max){
+
+  return Math.random() * (max-min) + min;
+
+}
+
+
+/* =========================
+   CHANGE GIF
+========================= */
+
+function nextGif(){
+
+  fallingGif.style.opacity = "0";
+
+
+  setTimeout(()=>{
+
+
+    fallingGif.src =
+      gifList[gifIndex];
+
+
+    gifIndex++;
+
+
+    if(gifIndex >= gifList.length){
+
+      gifIndex = 0;
+
+    }
+
+
+    const width =
+      phone.clientWidth;
+
+    const height =
+      phone.clientHeight;
+
+
+    const maxX =
+      Math.max(0,width-gifSize);
+
+    const maxY =
+      Math.max(0,height-gifSize);
+
+
+    /* RANDOM POSITION */
+
+    gifX =
+      random(0,maxX);
+
+    gifY =
+      random(0,maxY);
+
+
+    /* RANDOM DIRECTION */
+
+    velocityX =
+      random(-2.5,2.5);
+
+    velocityY =
+      random(-2.5,2.5);
+
+
+    /* PREVENT TOO-SLOW MOVEMENT */
+
+    if(Math.abs(velocityX) < 1){
+
+      velocityX =
+        velocityX < 0
+        ? -1.5
+        : 1.5;
+
+    }
+
+
+    if(Math.abs(velocityY) < 1){
+
+      velocityY =
+        velocityY < 0
+        ? -1.5
+        : 1.5;
+
+    }
+
+
+    /* RANDOM ROTATION */
+
+    rotation =
+      random(0,360);
+
+
+    rotationSpeed =
+      random(2,5);
+
+
+    /* CLOCKWISE / ANTICLOCKWISE */
+
+    if(Math.random() < 0.5){
+
+      rotationSpeed *= -1;
+
+    }
+
+
+    fallingGif.style.opacity =
+      "1";
+
+
+  },150);
+
+}
+
+
+/* =========================
+   GIF ANIMATION
+========================= */
+
+function animateGif(){
+
+
+  const width =
+    phone.clientWidth;
+
+  const height =
+    phone.clientHeight;
+
+
+  const maxX =
+    Math.max(0,width-gifSize);
+
+  const maxY =
+    Math.max(0,height-gifSize);
+
+
+  /* MOVE */
+
+  gifX += velocityX;
+
+  gifY += velocityY;
+
+
+  /* LEFT EDGE */
+
+  if(gifX <= 0){
+
+    gifX = 0;
+
+    velocityX =
+      Math.abs(velocityX);
+
+  }
+
+
+  /* RIGHT EDGE */
+
+  if(gifX >= maxX){
+
+    gifX = maxX;
+
+    velocityX =
+      -Math.abs(velocityX);
+
+  }
+
+
+  /* TOP EDGE */
+
+  if(gifY <= 0){
+
+    gifY = 0;
+
+    velocityY =
+      Math.abs(velocityY);
+
+  }
+
+
+  /* BOTTOM EDGE */
+
+  if(gifY >= maxY){
+
+    gifY = maxY;
+
+    velocityY =
+      -Math.abs(velocityY);
+
+  }
+
+
+  /* ROTATE */
+
+  rotation += rotationSpeed;
+
+
+  /* POSITION */
+
+  fallingGif.style.left =
+    gifX + "px";
+
+  fallingGif.style.top =
+    gifY + "px";
+
+
+  fallingGif.style.transform =
+    `rotate(${rotation}deg)`;
+
+
+  requestAnimationFrame(animateGif);
+
+}
+
+
+/* START GIF */
+
+nextGif();
+
+setInterval(
+  nextGif,
+  2000
+);
+
+animateGif();
 
 
 /* =========================
    PAGES
 ========================= */
 
-const pages={
+const pages = {
 
 
 music:{
+
 title:"Our Songs 🎵",
+
 sub:"Kuch songs aapke liye.",
 
 html:`
 
 <div class="songs">
 
+
 <div class="song">
 
-<strong>Song One ♡</strong>
+<strong>
+Song One ♡
+</strong>
 
 <small>
 By my side 💞
 </small>
 
 <audio controls>
-<source src="music/song1.mp3" type="audio/mpeg">
+
+<source
+  src="music/song1.mp3"
+  type="audio/mpeg">
+
 </audio>
 
 </div>
@@ -585,14 +1165,20 @@ By my side 💞
 
 <div class="song">
 
-<strong>Song Two ♡</strong>
+<strong>
+Song Two ♡
+</strong>
 
 <small>
 First love 💌
 </small>
 
 <audio controls>
-<source src="music/song2.mp3" type="audio/mpeg">
+
+<source
+  src="music/song2.mp3"
+  type="audio/mpeg">
+
 </audio>
 
 </div>
@@ -600,23 +1186,29 @@ First love 💌
 
 <div class="song">
 
-<strong>Song Three ♡</strong>
+<strong>
+Song Three ♡
+</strong>
 
 <small>
 Behja 😗
 </small>
 
 <audio controls>
-<source src="music/song3.mp3" type="audio/mpeg">
+
+<source
+  src="music/song3.mp3"
+  type="audio/mpeg">
+
 </audio>
 
 </div>
 
+
 </div>
 
-
-
 `
+
 },
 
 
@@ -630,64 +1222,72 @@ html:`
 
 <div class="memory-grid">
 
-<button class="memory"
-data-photo="images/photo1.jpg">
+
+<button
+  class="memory"
+  data-photo="images/photo1.jpg">
 
 <img
-src="images/photo1.jpg"
-alt="Memory 1">
+  src="images/photo1.jpg"
+  alt="Memory 1">
 
 </button>
 
 
-<button class="memory"
-data-photo="images/photo2.jpg">
+<button
+  class="memory"
+  data-photo="images/photo2.jpg">
 
 <img
-src="images/photo2.jpg"
-alt="Memory 2">
+  src="images/photo2.jpg"
+  alt="Memory 2">
 
 </button>
 
 
-<button class="memory"
-data-photo="images/photo3.jpg">
+<button
+  class="memory"
+  data-photo="images/photo3.jpg">
 
 <img
-src="images/photo3.jpg"
-alt="Memory 3">
+  src="images/photo3.jpg"
+  alt="Memory 3">
 
 </button>
 
 
-<button class="memory"
-data-photo="images/photo4.jpg">
+<button
+  class="memory"
+  data-photo="images/photo4.jpg">
 
 <img
-src="images/photo4.jpg"
-alt="Memory 4">
+  src="images/photo4.jpg"
+  alt="Memory 4">
 
 </button>
 
 
-<button class="memory"
-data-photo="images/photo5.jpg">
+<button
+  class="memory"
+  data-photo="images/photo5.jpg">
 
 <img
-src="images/photo5.jpg"
-alt="Memory 5">
+  src="images/photo5.jpg"
+  alt="Memory 5">
 
 </button>
 
 
-<button class="memory"
-data-photo="images/photo6.jpg">
+<button
+  class="memory"
+  data-photo="images/photo6.jpg">
 
 <img
-src="images/photo6.jpg"
-alt="Memory 6">
+  src="images/photo6.jpg"
+  alt="Memory 6">
 
 </button>
+
 
 </div>
 
@@ -699,6 +1299,7 @@ Itte sare photo h but ye kuch special h😗.
 </div>
 
 `
+
 },
 
 
@@ -725,6 +1326,7 @@ I hope you always remember how genuinely special you are to me. ♡
 </div>
 
 `
+
 },
 
 
@@ -741,6 +1343,7 @@ html:`
 <div class="heart">
 💗
 </div>
+
 
 <div class="note">
 
@@ -759,6 +1362,7 @@ May the years ahead be gentle, exciting and beautiful.
 </div>
 
 `
+
 },
 
 
@@ -771,14 +1375,16 @@ sub:"You found something.",
 html:`
 
 <div
-class="note"
-style="text-align:center">
+  class="note"
+  style="text-align:center">
 
 Okay... this one is just between us. 👀
 
 <br><br>
 
-<b>I miss you.</b>
+<b>
+I miss you.
+</b>
 
 <br><br>
 
@@ -787,6 +1393,7 @@ And apparently this website is not helping me hide it.
 </div>
 
 `
+
 },
 
 
@@ -809,7 +1416,6 @@ So instead of making one long message, I made you a little world where every app
 </div>
 
 `
-}
 
 };
 
@@ -820,52 +1426,70 @@ So instead of making one long message, I made you a little world where every app
 
 function openPage(k){
 
-const p=pages[k];
-
-content.innerHTML=
-"<h2>"+p.title+"</h2>"+
-"<div class='sub'>"+p.sub+"</div>"+
-p.html;
-
-modal.classList.add("show");
+  const p =
+    pages[k];
 
 
-/* ONLY ONE SONG AT A TIME */
-
-const songs=content.querySelectorAll("audio");
-
-songs.forEach(song=>{
-
-song.addEventListener("play",()=>{
-
-songs.forEach(other=>{
-
-if(other!==song){
-
-other.pause();
-
-}
-
-});
-
-});
-
-});
+  content.innerHTML =
+    "<h2>"+p.title+"</h2>"+
+    "<div class='sub'>"+
+    p.sub+
+    "</div>"+
+    p.html;
 
 
-/* MEMORY CLICK */
+  modal.classList.add("show");
 
-content.querySelectorAll(".memory").forEach(x=>{
 
-x.addEventListener("click",()=>{
+  /* ONE SONG AT A TIME */
 
-large.src=x.dataset.photo;
+  const songs =
+    content.querySelectorAll("audio");
 
-viewer.classList.add("show");
 
-});
+  songs.forEach(song=>{
 
-});
+    song.addEventListener(
+      "play",
+      ()=>{
+
+        songs.forEach(other=>{
+
+          if(other !== song){
+
+            other.pause();
+
+          }
+
+        });
+
+      }
+    );
+
+  });
+
+
+  /* MEMORY CLICK */
+
+  content
+    .querySelectorAll(".memory")
+    .forEach(x=>{
+
+      x.addEventListener(
+        "click",
+        ()=>{
+
+          large.src =
+            x.dataset.photo;
+
+          viewer.classList.add(
+            "show"
+          );
+
+        }
+      );
+
+    });
 
 }
 
@@ -874,57 +1498,83 @@ viewer.classList.add("show");
    APP BUTTONS
 ========================= */
 
-document.querySelectorAll(".app").forEach(b=>{
+document
+  .querySelectorAll(".app")
+  .forEach(b=>{
 
-b.addEventListener("click",()=>{
+    b.addEventListener(
+      "click",
+      ()=>{
 
-openPage(b.dataset.page);
+        openPage(
+          b.dataset.page
+        );
 
-});
+      }
+    );
 
-});
+  });
 
 
 /* =========================
    CLOSE MODAL
 ========================= */
 
-document.getElementById("close").addEventListener("click",()=>{
+document
+  .getElementById("close")
+  .addEventListener(
+    "click",
+    ()=>{
 
-modal.classList.remove("show");
+      modal.classList.remove(
+        "show"
+      );
 
-});
+    }
+  );
 
 
-modal.addEventListener("click",e=>{
+modal.addEventListener(
+  "click",
+  e=>{
 
-if(e.target===modal){
+    if(e.target === modal){
 
-modal.classList.remove("show");
+      modal.classList.remove(
+        "show"
+      );
 
-}
+    }
 
-});
+  }
+);
 
 
 /* =========================
    PHOTO VIEWER
 ========================= */
 
-document.getElementById("photoClose").addEventListener("click",()=>{
+document
+  .getElementById("photoClose")
+  .addEventListener(
+    "click",
+    ()=>{
 
-viewer.classList.remove("show");
+      viewer.classList.remove(
+        "show"
+      );
 
-large.src="";
+      large.src = "";
 
-});
+    }
+  );
 
 
 /* =========================
    BACKGROUND MUSIC
 ========================= */
 
-bg.muted=true;
+bg.muted = true;
 
 bg.play().catch(()=>{});
 
@@ -933,92 +1583,136 @@ bg.play().catch(()=>{});
    MUTE BUTTON
 ========================= */
 
-let muted=true;
+let muted = true;
 
-mute.addEventListener("click",e=>{
 
-e.stopPropagation();
+mute.addEventListener(
+  "click",
+  e=>{
 
-bg.muted=!bg.muted;
+    e.stopPropagation();
 
-muted=bg.muted;
 
-mute.textContent=muted?"🔇":"🔊";
+    bg.muted =
+      !bg.muted;
 
-if(!muted){
 
-bg.play().catch(()=>{});
+    muted =
+      bg.muted;
 
-}
 
-});
+    mute.textContent =
+      muted
+      ? "🔇"
+      : "🔊";
+
+
+    if(!muted){
+
+      bg.play().catch(()=>{});
+
+    }
+
+  }
+);
 
 
 /* =========================
    START MUSIC AFTER INTERACTION
 ========================= */
 
-document.addEventListener("pointerdown",()=>{
+document.addEventListener(
+  "pointerdown",
+  ()=>{
 
-if(!muted){
+    if(!muted){
 
-bg.play().catch(()=>{});
+      bg.play().catch(()=>{});
 
-}
+    }
 
-},{once:true});
+  },
+  {once:true}
+);
 
 
 /* =========================
    I MISS YOU TOUCH EFFECT
 ========================= */
 
-let last=0;
-
-phone.addEventListener("pointerdown",e=>{
-
-if(
-e.target.closest("#muteBtn") ||
-e.target.closest("audio") ||
-e.target.closest(".app") ||
-e.target.closest(".modal")
-)return;
+let last = 0;
 
 
-let now=Date.now();
-
-if(now-last<350)
-return;
-
-last=now;
+phone.addEventListener(
+  "pointerdown",
+  e=>{
 
 
-let m=document.createElement("div");
+    if(
+      e.target.closest("#muteBtn") ||
+      e.target.closest("audio") ||
+      e.target.closest(".app") ||
+      e.target.closest(".modal")
+    ){
 
-m.className="miss";
+      return;
 
-m.textContent="I miss you ♡";
-
-
-/* EXACT TOUCH POSITION */
-
-m.style.left=e.clientX+"px";
-m.style.top=e.clientY+"px";
-
-
-document.body.appendChild(m);
+    }
 
 
-setTimeout(()=>m.remove(),1400);
+    let now =
+      Date.now();
 
 
-if(muted===false){
+    if(now-last < 350){
 
-bg.play().catch(()=>{});
+      return;
 
-}
+    }
 
-});
+
+    last = now;
+
+
+    let m =
+      document.createElement("div");
+
+
+    m.className =
+      "miss";
+
+
+    m.textContent =
+      "I miss you ♡";
+
+
+    /* EXACT TOUCH POSITION */
+
+    m.style.left =
+      e.clientX+"px";
+
+    m.style.top =
+      e.clientY+"px";
+
+
+    document.body.appendChild(m);
+
+
+    setTimeout(
+      ()=>m.remove(),
+      1400
+    );
+
+
+    if(muted === false){
+
+      bg.play().catch(()=>{});
+
+    }
+
+  }
+);
+
 
 })();
 
