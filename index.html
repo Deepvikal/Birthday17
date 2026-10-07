@@ -63,8 +63,9 @@ body{
   left:0;
   top:0;
 
-  width:64px;
-  height:64px;
+  /* 50% LARGER */
+  width:96px;
+  height:96px;
 
   object-fit:contain;
 
@@ -112,18 +113,12 @@ body{
 
 .mute{
   border:1px solid #ffffff4d;
-
   background:#0004;
-
   color:#fff;
-
   border-radius:50%;
-
   width:44px;
   height:44px;
-
   font-size:18px;
-
   cursor:pointer;
 }
 
@@ -159,9 +154,7 @@ body{
   z-index:3;
 
   border:1px solid #ffffff38;
-
   background:#ffffff24;
-
   color:#fff;
 
   border-radius:22px;
@@ -585,9 +578,10 @@ h2{
     height:125px;
   }
 
+  /* 50% larger than previous 58px */
   .falling-gif{
-    width:58px;
-    height:58px;
+    width:87px;
+    height:87px;
   }
 
 }
@@ -868,24 +862,33 @@ const fallingGif =
    GIF SYSTEM
    ================================================== */
 
-/*
-   IMPORTANT:
-   Only ONE GIF is loaded at a time.
-*/
-
 const gifs = [
+
   "images/gif1.gif",
   "images/gif2.gif",
   "images/gif3.gif",
   "images/gif4.gif",
   "images/gif5.gif"
+
 ];
 
 
 let currentGif = 0;
 
+
+/*
+   IMPORTANT:
+
+   x and y are NOT reset when
+   the GIF changes.
+
+   Therefore every new GIF starts
+   exactly where the previous one was.
+*/
+
 let x = 20;
 let y = 20;
+
 
 let vx = 1.8;
 let vy = 2.2;
@@ -898,42 +901,43 @@ let lastTime = 0;
 let gifRunning = true;
 
 
-/* GIF SIZE */
+/* ==================================================
+   GIF SIZE
+   ================================================== */
 
 function getGifSize(){
 
   return window.innerWidth <= 430
-    ? 58
-    : 64;
-
-}
-
-
-/* RANDOM */
-
-function random(min,max){
-
-  return Math.random() *
-    (max-min) + min;
+    ? 87
+    : 96;
 
 }
 
 
 /* ==================================================
-   LOAD NEXT GIF
+   SHOW NEXT GIF
    ================================================== */
 
 function showNextGif(){
 
   /*
-     Hide it first.
+     Hide current GIF.
   */
 
   fallingGif.style.opacity = "0";
 
 
   /*
-     Change source.
+     IMPORTANT:
+     We DO NOT change x or y here.
+
+     The new GIF therefore appears
+     exactly where the old GIF disappeared.
+  */
+
+
+  /*
+     Change GIF.
   */
 
   fallingGif.src =
@@ -941,10 +945,11 @@ function showNextGif(){
 
 
   /*
-     Next GIF.
+     Go to next GIF.
   */
 
   currentGif++;
+
 
   if(currentGif >= gifs.length){
 
@@ -954,86 +959,30 @@ function showNextGif(){
 
 
   /*
-     Random starting position.
-  */
-
-  const size =
-    getGifSize();
-
-  const maxX =
-    Math.max(0,
-      phone.clientWidth-size
-    );
-
-  const maxY =
-    Math.max(0,
-      phone.clientHeight-size
-    );
-
-
-  x =
-    random(0,maxX);
-
-  y =
-    random(0,maxY);
-
-
-  /*
-     Random direction.
-  */
-
-  vx =
-    random(-2.2,2.2);
-
-  vy =
-    random(-2.2,2.2);
-
-
-  /*
-     Prevent very slow movement.
-  */
-
-  if(Math.abs(vx) < .8){
-
-    vx =
-      vx < 0
-      ? -.8
-      : .8;
-
-  }
-
-
-  if(Math.abs(vy) < .8){
-
-    vy =
-      vy < 0
-      ? -.8
-      : .8;
-
-  }
-
-
-  /*
-     Random spin.
+     Random spin direction for
+     the new GIF.
   */
 
   spin =
     random(2,4);
 
 
-  if(Math.random() < .5){
+  if(Math.random() < 0.5){
 
     spin *= -1;
 
   }
 
 
-  angle =
-    random(0,360);
+  /*
+     Keep the current rotation
+     position instead of jumping.
+  */
 
 
   /*
-     Wait for the GIF to actually load.
+     Make sure the GIF is visible
+     after it loads.
   */
 
   fallingGif.onload =
@@ -1048,6 +997,18 @@ function showNextGif(){
 
 
 /* ==================================================
+   RANDOM
+   ================================================== */
+
+function random(min,max){
+
+  return Math.random() *
+    (max-min) + min;
+
+}
+
+
+/* ==================================================
    LIGHTWEIGHT ANIMATION
    ================================================== */
 
@@ -1057,7 +1018,9 @@ function moveGif(time){
 
     lastTime = time;
 
-    requestAnimationFrame(moveGif);
+    requestAnimationFrame(
+      moveGif
+    );
 
     return;
 
@@ -1065,13 +1028,14 @@ function moveGif(time){
 
 
   /*
-     Run approximately 30 times per second
-     instead of every possible frame.
+     Around 30 FPS.
   */
 
   if(time-lastTime < 33){
 
-    requestAnimationFrame(moveGif);
+    requestAnimationFrame(
+      moveGif
+    );
 
     return;
 
@@ -1104,12 +1068,11 @@ function moveGif(time){
   */
 
   x += vx;
-
   y += vy;
 
 
   /*
-     Bounce LEFT.
+     LEFT EDGE
   */
 
   if(x <= 0){
@@ -1123,7 +1086,7 @@ function moveGif(time){
 
 
   /*
-     Bounce RIGHT.
+     RIGHT EDGE
   */
 
   if(x >= maxX){
@@ -1137,7 +1100,7 @@ function moveGif(time){
 
 
   /*
-     Bounce TOP.
+     TOP EDGE
   */
 
   if(y <= 0){
@@ -1151,7 +1114,7 @@ function moveGif(time){
 
 
   /*
-     Bounce BOTTOM.
+     BOTTOM EDGE
   */
 
   if(y >= maxY){
@@ -1172,7 +1135,7 @@ function moveGif(time){
 
 
   /*
-     Use ONE transform.
+     Position + rotation.
   */
 
   fallingGif.style.transform =
@@ -1182,7 +1145,9 @@ function moveGif(time){
     angle+"deg)";
 
 
-  requestAnimationFrame(moveGif);
+  requestAnimationFrame(
+    moveGif
+  );
 
 }
 
@@ -1194,14 +1159,15 @@ function moveGif(time){
 showNextGif();
 
 
-const gifTimer =
-  setInterval(
-    showNextGif,
-    2000
-  );
+setInterval(
+  showNextGif,
+  2000
+);
 
 
-requestAnimationFrame(moveGif);
+requestAnimationFrame(
+  moveGif
+);
 
 
 /* ==================================================
@@ -1529,8 +1495,6 @@ function openPage(pageName){
 
   /*
      Pause GIF while modal is open.
-     This saves resources and keeps
-     mobile performance smooth.
   */
 
   gifRunning = false;
@@ -1776,10 +1740,6 @@ phone.addEventListener(
   "pointerdown",
   function(event){
 
-
-    /*
-       Don't trigger on controls.
-    */
 
     if(
       event.target.closest(
