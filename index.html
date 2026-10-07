@@ -36,80 +36,6 @@ body{
   box-shadow:0 20px 70px #0007
 }
 
-
-/* =================================
-   FLOATING GIFS + I LOVE YOU
-================================= */
-
-.floating-gif{
-  position:absolute;
-
-  /* APP ICON-SIZED */
-  width:55px;
-  height:55px;
-
-  object-fit:contain;
-
-  z-index:1;
-  pointer-events:none;
-
-  opacity:0;
-
-  transform-origin:center center;
-
-  filter:drop-shadow(0 5px 10px #0008);
-
-  transition:
-    opacity .12s ease,
-    left .18s ease,
-    top .18s ease,
-    transform .18s ease;
-}
-
-.floating-gif.show{
-  opacity:1;
-}
-
-
-/* I LOVE YOU text */
-
-.love-pop{
-  position:absolute;
-
-  z-index:1;
-  pointer-events:none;
-
-  opacity:0;
-
-  color:#fff;
-  font-size:16px;
-  font-weight:900;
-  white-space:nowrap;
-
-  text-shadow:
-    0 2px 8px #000,
-    0 0 12px #ff8fc7;
-
-  transform:
-    translate(-50%,-50%)
-    scale(.45);
-
-  transition:
-    opacity .12s ease,
-    transform .18s ease;
-}
-
-.love-pop.show{
-  opacity:1;
-
-  transform:
-    translate(-50%,-50%)
-    scale(1);
-}
-
-
-/* ================================= */
-
 .content{
   position:relative;
   z-index:2;
@@ -165,7 +91,6 @@ body{
   grid-template-columns:repeat(3,1fr);
   gap:12px
 }
-
 
 /* GLASS APP BUTTONS */
 
@@ -223,6 +148,33 @@ body{
 }
 
 
+/* =========================
+   FALLING GIF
+========================= */
+
+.falling-gif{
+  position:absolute;
+
+  width:64px;
+  height:64px;
+
+  object-fit:contain;
+
+  pointer-events:none;
+
+  /* Behind all buttons/content */
+  z-index:1;
+
+  filter:drop-shadow(0 5px 10px #0008);
+
+  will-change:transform,left,top;
+
+  opacity:0;
+
+  transition:opacity .15s ease
+}
+
+
 /* GLASS MODAL */
 
 .modal{
@@ -243,6 +195,9 @@ body{
 .modal.show{
   display:flex
 }
+
+
+/* TRANSPARENT GLASS SHEET */
 
 .sheet{
   width:100%;
@@ -306,7 +261,7 @@ h2{
 }
 
 
-/* NOTES */
+/* GLASS NOTES */
 
 .note{
   background:#ffffff18;
@@ -512,77 +467,30 @@ h2{
     height:125px
   }
 
-  .floating-gif{
-    width:50px;
-    height:50px
-  }
-
-  .love-pop{
-    font-size:14px
+  .falling-gif{
+    width:60px;
+    height:60px
   }
 }
 
 </style>
 </head>
 
-
 <body>
 
 <div class="phone" id="phone">
 
 
-<!-- =================================
-     FIVE FLOATING GIFS
-================================= -->
+<!-- =========================
+     FALLING GIF
+========================= -->
 
 <img
-  class="floating-gif"
-  id="gif1"
-  src="images/gif1.gif"
+  id="fallingGif"
+  class="falling-gif"
+  src=""
   alt=""
-  aria-hidden="true"
 >
-
-<img
-  class="floating-gif"
-  id="gif2"
-  src="images/gif2.gif"
-  alt=""
-  aria-hidden="true"
->
-
-<img
-  class="floating-gif"
-  id="gif3"
-  src="images/gif3.gif"
-  alt=""
-  aria-hidden="true"
->
-
-<img
-  class="floating-gif"
-  id="gif4"
-  src="images/gif4.gif"
-  alt=""
-  aria-hidden="true"
->
-
-<img
-  class="floating-gif"
-  id="gif5"
-  src="images/gif5.gif"
-  alt=""
-  aria-hidden="true"
->
-
-
-<!-- I LOVE YOU APPEARS AT GIF POSITION -->
-
-<div
-  class="love-pop"
-  id="lovePop">
-  I LOVE YOU ♡
-</div>
 
 
 <div class="content">
@@ -603,7 +511,9 @@ h2{
 
 <h1>Happy Birthday to you Babu 💌</h1>
 
-<p></p>
+<p>
+
+</p>
 
 </div>
 
@@ -650,7 +560,9 @@ I really miss you moti ♡
 </div>
 
 
-<!-- APP MODAL -->
+<!-- =========================
+     APP MODAL
+========================= -->
 
 <div class="modal" id="modal">
 
@@ -665,7 +577,9 @@ I really miss you moti ♡
 </div>
 
 
-<!-- PHOTO VIEWER -->
+<!-- =========================
+     PHOTO VIEWER
+========================= -->
 
 <div class="photo-viewer" id="photoViewer">
 
@@ -676,10 +590,17 @@ I really miss you moti ♡
 </div>
 
 
-<!-- BACKGROUND MUSIC -->
+<!-- =========================
+     BACKGROUND MUSIC
+========================= -->
 
 <audio id="backgroundMusic" loop autoplay muted>
-<source src="music/background.mp3" type="audio/mpeg">
+
+<source
+  src="music/background.mp3"
+  type="audio/mpeg"
+>
+
 </audio>
 
 </div>
@@ -696,195 +617,275 @@ bg=document.getElementById("backgroundMusic"),
 mute=document.getElementById("muteBtn"),
 viewer=document.getElementById("photoViewer"),
 large=document.getElementById("largePhoto"),
-
-gif1=document.getElementById("gif1"),
-gif2=document.getElementById("gif2"),
-gif3=document.getElementById("gif3"),
-gif4=document.getElementById("gif4"),
-gif5=document.getElementById("gif5"),
-
-lovePop=document.getElementById("lovePop");
+fallingGif=document.getElementById("fallingGif");
 
 
 /* =========================
-   FIVE FLOATING GIFS
+   FALLING GIF SYSTEM
 ========================= */
 
-const floatingGifs=[
-  gif1,
-  gif2,
-  gif3,
-  gif4,
-  gif5
+const gifList=[
+
+  "images/gif1.gif",
+  "images/gif2.gif",
+  "images/gif3.gif",
+  "images/gif4.gif",
+  "images/gif5.gif"
+
 ];
 
-let currentGif=0;
+let gifIndex=0;
+
+let gifX=50;
+let gifY=50;
+
+let velocityX=1.8;
+let velocityY=2;
+
+let rotation=0;
+let rotationSpeed=3;
+
+const gifSize=64;
 
 
-/*
-   Show one GIF every 500ms.
+/* RANDOM NUMBER */
 
-   The GIF and "I LOVE YOU"
-   share the exact same CENTER.
-*/
+function random(min,max){
 
-function moveFloatingGif(){
+  return Math.random()*(max-min)+min;
 
-  /* Hide every GIF */
-
-  floatingGifs.forEach(g=>{
-    g.classList.remove("show");
-  });
-
-  lovePop.classList.remove("show");
+}
 
 
-  /* Pick current GIF */
+/* =========================
+   CHANGE GIF
+========================= */
 
-  const gif=floatingGifs[currentGif];
-
-
-  /*
-     Actual size of GIF.
-     Keep it completely inside
-     the phone.
-  */
-
-  const gifSize=55;
-
-  const maxX=Math.max(
-    5,
-    phone.clientWidth-gifSize-5
-  );
-
-  const maxY=Math.max(
-    5,
-    phone.clientHeight-gifSize-5
-  );
-
+function nextGif(){
 
   /*
-     Random position
+    Fade out current GIF
   */
 
-  const x=
-    Math.random()*maxX;
-
-  const y=
-    Math.random()*maxY;
+  fallingGif.style.opacity="0";
 
 
-  /*
-     Random rotation
-  */
-
-  const rotation=
-    Math.floor(Math.random()*361)-180;
-
-
-  /*
-     Random small scale
-  */
-
-  const scale=
-    0.85+Math.random()*0.25;
-
-
-  /*
-     Place GIF
-  */
-
-  gif.style.left=x+"px";
-  gif.style.top=y+"px";
-
-  gif.style.transform=
-    "rotate("+rotation+"deg) scale("+scale+")";
-
-
-  /*
-     Put I LOVE YOU at the
-     CENTER of the GIF.
-  */
-
-  const centerX=
-    x+(gifSize/2);
-
-  const centerY=
-    y+(gifSize/2);
-
-
-  lovePop.style.left=
-    centerX+"px";
-
-  lovePop.style.top=
-    centerY+"px";
-
-
-  /*
-     Give the text the SAME
-     random rotation as GIF,
-     so it feels attached to it.
-  */
-
-  lovePop.style.transform=
-    "translate(-50%,-50%) rotate("+
-    rotation+
-    "deg) scale(.45)";
-
-
-  /*
-     Show GIF first
-  */
-
-  requestAnimationFrame(()=>{
-
-    gif.classList.add("show");
+  setTimeout(()=>{
 
     /*
-       Then pop I LOVE YOU
-       immediately after it appears.
+      Select next GIF
     */
 
-    setTimeout(()=>{
+    fallingGif.src=gifList[gifIndex];
 
-      lovePop.style.transform=
-        "translate(-50%,-50%) rotate("+
-        rotation+
-        "deg) scale(1)";
 
-      lovePop.classList.add("show");
+    gifIndex++;
 
-    },50);
+    if(gifIndex>=gifList.length){
 
-  });
+      gifIndex=0;
+
+    }
+
+
+    /*
+      Get available area
+    */
+
+    const maxX=
+      phone.clientWidth-gifSize;
+
+    const maxY=
+      phone.clientHeight-gifSize;
+
+
+    /*
+      Random starting position
+    */
+
+    gifX=random(5,Math.max(6,maxX-5));
+
+    gifY=random(5,Math.max(6,maxY-5));
+
+
+    /*
+      Random movement direction
+    */
+
+    velocityX=random(-2.8,2.8);
+
+    velocityY=random(-2.8,2.8);
+
+
+    /*
+      Prevent extremely slow movement
+    */
+
+    if(Math.abs(velocityX)<0.9){
+
+      velocityX=
+        velocityX<0
+        ?-1.3
+        :1.3;
+
+    }
+
+
+    if(Math.abs(velocityY)<0.9){
+
+      velocityY=
+        velocityY<0
+        ?-1.3
+        :1.3;
+
+    }
+
+
+    /*
+      Random spinning speed
+    */
+
+    rotationSpeed=random(2.5,6);
+
+
+    /*
+      Random clockwise / anticlockwise
+    */
+
+    if(Math.random()<0.5){
+
+      rotationSpeed*=-1;
+
+    }
+
+
+    rotation=random(0,360);
+
+
+    /*
+      Show GIF
+    */
+
+    fallingGif.style.opacity="1";
+
+
+  },150);
+
+}
+
+
+/* =========================
+   BOUNCING + SPINNING
+========================= */
+
+function animateGif(){
+
+  const maxX=
+    phone.clientWidth-gifSize;
+
+  const maxY=
+    phone.clientHeight-gifSize;
 
 
   /*
-     Move to next GIF.
-     1 → 2 → 3 → 4 → 5 → 1...
+    Move
   */
 
-  currentGif=
-    (currentGif+1)%floatingGifs.length;
+  gifX+=velocityX;
+  gifY+=velocityY;
+
+
+  /*
+    LEFT EDGE
+  */
+
+  if(gifX<=0){
+
+    gifX=0;
+
+    velocityX=
+      Math.abs(velocityX);
+
+  }
+
+
+  /*
+    RIGHT EDGE
+  */
+
+  if(gifX>=maxX){
+
+    gifX=maxX;
+
+    velocityX=
+      -Math.abs(velocityX);
+
+  }
+
+
+  /*
+    TOP EDGE
+  */
+
+  if(gifY<=0){
+
+    gifY=0;
+
+    velocityY=
+      Math.abs(velocityY);
+
+  }
+
+
+  /*
+    BOTTOM EDGE
+  */
+
+  if(gifY>=maxY){
+
+    gifY=maxY;
+
+    velocityY=
+      -Math.abs(velocityY);
+
+  }
+
+
+  /*
+    SPIN ON ITS OWN AXIS
+  */
+
+  rotation+=rotationSpeed;
+
+
+  /*
+    Apply position + rotation
+  */
+
+  fallingGif.style.left=
+    gifX+"px";
+
+  fallingGif.style.top=
+    gifY+"px";
+
+  fallingGif.style.transform=
+    `rotate(${rotation}deg)`;
+
+
+  requestAnimationFrame(animateGif);
+
 }
 
 
 /*
-   First appearance immediately.
+  Start GIF animation
 */
 
-moveFloatingGif();
+nextGif();
 
+setInterval(nextGif,2000);
 
-/*
-   Switch every half second.
-*/
-
-const floatingGifTimer=
-  setInterval(
-    moveFloatingGif,
-    500
-  );
+animateGif();
 
 
 /* =========================
@@ -892,6 +893,7 @@ const floatingGifTimer=
 ========================= */
 
 const pages={
+
 
 music:{
 title:"Our Songs 🎵",
@@ -902,35 +904,51 @@ html:`
 <div class="songs">
 
 <div class="song">
+
 <strong>Song One ♡</strong>
-<small>By my side 💞</small>
+
+<small>
+By my side 💞
+</small>
 
 <audio controls>
 <source src="music/song1.mp3" type="audio/mpeg">
 </audio>
+
 </div>
 
 
 <div class="song">
+
 <strong>Song Two ♡</strong>
-<small>First love 💌</small>
+
+<small>
+First love 💌
+</small>
 
 <audio controls>
 <source src="music/song2.mp3" type="audio/mpeg">
 </audio>
+
 </div>
 
 
 <div class="song">
+
 <strong>Song Three ♡</strong>
-<small>Behja 😗</small>
+
+<small>
+Behja 😗
+</small>
 
 <audio controls>
 <source src="music/song3.mp3" type="audio/mpeg">
 </audio>
+
 </div>
 
 </div>
+
 `
 },
 
@@ -938,40 +956,85 @@ html:`
 memories:{
 
 title:"Our Memories 📸",
+
 sub:"Tap any photo to open it.",
 
 html:`
 
 <div class="memory-grid">
 
-<button class="memory" data-photo="images/photo1.jpg">
-<img src="images/photo1.jpg" alt="Memory 1">
+<button
+class="memory"
+data-photo="images/photo1.jpg">
+
+<img
+src="images/photo1.jpg"
+alt="Memory 1">
+
 </button>
 
-<button class="memory" data-photo="images/photo2.jpg">
-<img src="images/photo2.jpg" alt="Memory 2">
+
+<button
+class="memory"
+data-photo="images/photo2.jpg">
+
+<img
+src="images/photo2.jpg"
+alt="Memory 2">
+
 </button>
 
-<button class="memory" data-photo="images/photo3.jpg">
-<img src="images/photo3.jpg" alt="Memory 3">
+
+<button
+class="memory"
+data-photo="images/photo3.jpg">
+
+<img
+src="images/photo3.jpg"
+alt="Memory 3">
+
 </button>
 
-<button class="memory" data-photo="images/photo4.jpg">
-<img src="images/photo4.jpg" alt="Memory 4">
+
+<button
+class="memory"
+data-photo="images/photo4.jpg">
+
+<img
+src="images/photo4.jpg"
+alt="Memory 4">
+
 </button>
 
-<button class="memory" data-photo="images/photo5.jpg">
-<img src="images/photo5.jpg" alt="Memory 5">
+
+<button
+class="memory"
+data-photo="images/photo5.jpg">
+
+<img
+src="images/photo5.jpg"
+alt="Memory 5">
+
 </button>
 
-<button class="memory" data-photo="images/photo6.jpg">
-<img src="images/photo6.jpg" alt="Memory 6">
+
+<button
+class="memory"
+data-photo="images/photo6.jpg">
+
+<img
+src="images/photo6.jpg"
+alt="Memory 6">
+
 </button>
 
 </div>
 
+
 <div class="note">
+
 Itte sare photo h but ye kuch special h😗.
+
 </div>
 
 `
@@ -981,6 +1044,7 @@ Itte sare photo h but ye kuch special h😗.
 notes:{
 
 title:"A Note For You 💌",
+
 sub:"Something I wanted you to have.",
 
 html:`
@@ -1006,13 +1070,16 @@ I hope you always remember how genuinely special you are to me. ♡
 wishes:{
 
 title:"For Your Life 🌷",
+
 sub:"Wishes for everything ahead.",
 
 html:`
 
 <div class="wish">
 
-<div class="heart">💗</div>
+<div class="heart">
+💗
+</div>
 
 <div class="note">
 
@@ -1037,11 +1104,14 @@ May the years ahead be gentle, exciting and beautiful.
 secret:{
 
 title:"Secret Room 🔐",
+
 sub:"You found something.",
 
 html:`
 
-<div class="note" style="text-align:center">
+<div
+class="note"
+style="text-align:center">
 
 Okay... this one is just between us. 👀
 
@@ -1062,6 +1132,7 @@ And apparently this website is not helping me hide it.
 about:{
 
 title:"Why You ✨",
+
 sub:"The part I couldn't fit into one birthday message.",
 
 html:`
@@ -1096,7 +1167,9 @@ p.html;
 modal.classList.add("show");
 
 
-/* ONLY ONE SONG AT A TIME */
+/*
+  ONLY ONE SONG AT A TIME
+*/
 
 const songs=
 content.querySelectorAll("audio");
@@ -1108,7 +1181,9 @@ song.addEventListener("play",()=>{
 songs.forEach(other=>{
 
 if(other!==song){
+
 other.pause();
+
 }
 
 });
@@ -1118,7 +1193,9 @@ other.pause();
 });
 
 
-/* MEMORY CLICK */
+/*
+  MEMORY CLICK
+*/
 
 content.querySelectorAll(".memory").forEach(x=>{
 
@@ -1154,7 +1231,8 @@ openPage(b.dataset.page);
    CLOSE MODAL
 ========================= */
 
-document.getElementById("close")
+document
+.getElementById("close")
 .addEventListener("click",()=>{
 
 modal.classList.remove("show");
@@ -1177,7 +1255,8 @@ modal.classList.remove("show");
    PHOTO VIEWER
 ========================= */
 
-document.getElementById("photoClose")
+document
+.getElementById("photoClose")
 .addEventListener("click",()=>{
 
 viewer.classList.remove("show");
@@ -1211,10 +1290,14 @@ bg.muted=!bg.muted;
 muted=bg.muted;
 
 mute.textContent=
-muted?"🔇":"🔊";
+muted
+?"🔇"
+:"🔊";
 
 if(!muted){
+
 bg.play().catch(()=>{});
+
 }
 
 });
@@ -1227,7 +1310,9 @@ bg.play().catch(()=>{});
 document.addEventListener("pointerdown",()=>{
 
 if(!muted){
+
 bg.play().catch(()=>{});
+
 }
 
 },{once:true});
@@ -1257,12 +1342,17 @@ return;
 last=now;
 
 
-let m=document.createElement("div");
+let m=
+document.createElement("div");
 
 m.className="miss";
 
 m.textContent="I miss you ♡";
 
+
+/*
+  EXACT TOUCH POSITION
+*/
 
 m.style.left=
 e.clientX+"px";
@@ -1274,14 +1364,17 @@ e.clientY+"px";
 document.body.appendChild(m);
 
 
-setTimeout(
-()=>m.remove(),
-1400
-);
+setTimeout(()=>{
+
+m.remove();
+
+},1400);
 
 
 if(muted===false){
+
 bg.play().catch(()=>{});
+
 }
 
 });
