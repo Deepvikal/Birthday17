@@ -6,14 +6,15 @@
 <title>For Vaishnavi ♡</title>
 
 <style>
+
 *{
-  box-sizing:border-box
+  box-sizing:border-box;
 }
 
 html,body{
   margin:0;
   min-height:100%;
-  font-family:system-ui,sans-serif
+  font-family:system-ui,sans-serif;
 }
 
 body{
@@ -22,7 +23,7 @@ body{
   justify-content:center;
   align-items:center;
   padding:12px;
-  background:#151015
+  background:#151015;
 }
 
 .phone{
@@ -37,121 +38,130 @@ body{
     linear-gradient(180deg,#0003,#000b),
     url("images/background.jpg") center/cover no-repeat;
 
-  box-shadow:0 20px 70px #0007
+  box-shadow:0 20px 70px #0007;
 }
 
 
-/* =========================
+/* ==================================================
    GIF LAYER
-========================= */
+   ================================================== */
 
-#gifLayer{
+.gif-layer{
   position:absolute;
   inset:0;
+  overflow:hidden;
 
   z-index:1;
 
-  pointer-events:none !important;
-
-  overflow:hidden;
+  pointer-events:none;
+  touch-action:none;
 }
 
 .falling-gif{
   position:absolute;
+
+  left:0;
+  top:0;
 
   width:64px;
   height:64px;
 
   object-fit:contain;
 
-  pointer-events:none !important;
+  pointer-events:none;
   user-select:none;
-
-  z-index:1;
-
-  filter:drop-shadow(0 5px 10px #0008);
-
-  will-change:left,top,transform;
 
   opacity:0;
 
-  transition:opacity .15s ease;
+  transform-origin:center center;
+
+  will-change:transform;
+
+  filter:drop-shadow(0 5px 10px #0008);
 }
 
 
-/* =========================
-   CONTENT
-========================= */
+/* ==================================================
+   MAIN CONTENT
+   ================================================== */
 
 .content{
   position:relative;
-
   z-index:2;
-
-  padding:24px 18px 18px;
 
   min-height:680px;
 
-  pointer-events:auto;
+  padding:24px 18px 18px;
 }
 
 .top{
   display:flex;
   justify-content:space-between;
-  align-items:flex-start
+  align-items:flex-start;
 }
 
 .hello{
   font-size:12px;
-  opacity:.8
+  opacity:.8;
 }
 
 .name{
   font-size:25px;
-  font-weight:800
+  font-weight:800;
 }
 
 .mute{
   border:1px solid #ffffff4d;
+
   background:#0004;
+
   color:#fff;
+
   border-radius:50%;
+
   width:44px;
   height:44px;
+
   font-size:18px;
-  cursor:pointer
+
+  cursor:pointer;
 }
 
 .center{
   text-align:center;
-  margin:38px 0 30px
+  margin:38px 0 30px;
 }
 
 .center h1{
   font-size:31px;
   margin:0 0 8px;
-  text-shadow:0 3px 15px #0008
+  text-shadow:0 3px 15px #0008;
 }
 
 .center p{
   font-size:13px;
-  opacity:.85
+  opacity:.85;
 }
+
+
+/* ==================================================
+   APPS
+   ================================================== */
 
 .apps{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:12px
+  gap:12px;
 }
 
-
-/* =========================
-   GLASS APP BUTTONS
-========================= */
-
 .app{
+  position:relative;
+  z-index:3;
+
   border:1px solid #ffffff38;
+
   background:#ffffff24;
+
   color:#fff;
 
   border-radius:22px;
@@ -170,36 +180,27 @@ body{
     inset 0 1px 1px #ffffff25;
 
   transition:.18s;
-
-  position:relative;
-
-  z-index:3;
 }
 
 .app:hover{
   transform:translateY(-3px);
-  background:#ffffff2b
+  background:#ffffff2b;
 }
 
 .app:active{
   transform:scale(.94);
-
   filter:blur(2px);
-
   background:#ffffff40;
-
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px)
 }
 
 .icon{
   font-size:28px;
-  margin-bottom:8px
+  margin-bottom:8px;
 }
 
 .app span{
   font-size:12px;
-  font-weight:700
+  font-weight:700;
 }
 
 .bottom{
@@ -213,13 +214,13 @@ body{
 
   font-size:12px;
 
-  opacity:.75
+  opacity:.75;
 }
 
 
-/* =========================
-   GLASS MODAL
-========================= */
+/* ==================================================
+   MODAL
+   ================================================== */
 
 .modal{
   position:absolute;
@@ -237,17 +238,12 @@ body{
 
   align-items:flex-end;
 
-  padding:10px
+  padding:10px;
 }
 
 .modal.show{
-  display:flex
+  display:flex;
 }
-
-
-/* =========================
-   TRANSPARENT GLASS SHEET
-========================= */
 
 .sheet{
   width:100%;
@@ -273,19 +269,19 @@ body{
     0 10px 40px #0005,
     inset 0 1px 1px #ffffff35;
 
-  animation:up .25s ease
+  animation:up .25s ease;
 }
 
 @keyframes up{
 
   from{
     transform:translateY(35px);
-    opacity:0
+    opacity:0;
   }
 
   to{
     transform:translateY(0);
-    opacity:1
+    opacity:1;
   }
 
 }
@@ -305,11 +301,11 @@ body{
 
   font-size:20px;
 
-  cursor:pointer
+  cursor:pointer;
 }
 
 .close{
-  float:right
+  float:right;
 }
 
 h2{
@@ -317,19 +313,18 @@ h2{
 
   margin:3px 45px 7px 0;
 
-  text-shadow:0 2px 10px #0006
+  text-shadow:0 2px 10px #0006;
 }
 
 .sub{
   color:#ffffffc7;
-
-  font-size:13px
+  font-size:13px;
 }
 
 
-/* =========================
-   GLASS NOTES
-========================= */
+/* ==================================================
+   NOTES
+   ================================================== */
 
 .note{
   background:#ffffff18;
@@ -351,20 +346,20 @@ h2{
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
 
-  box-shadow:inset 0 1px 1px #ffffff20
+  box-shadow:inset 0 1px 1px #ffffff20;
 }
 
 
-/* =========================
+/* ==================================================
    SONGS
-========================= */
+   ================================================== */
 
 .songs{
   display:grid;
 
   gap:11px;
 
-  margin-top:18px
+  margin-top:18px;
 }
 
 .song{
@@ -381,27 +376,26 @@ h2{
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
 
-  box-shadow:inset 0 1px 1px #ffffff15
+  box-shadow:inset 0 1px 1px #ffffff15;
 }
 
 .song strong{
-  display:block
+  display:block;
 }
 
 .song small{
-  color:#ffffffb5
+  color:#ffffffb5;
 }
 
 .song audio{
   width:100%;
-
-  margin-top:10px
+  margin-top:10px;
 }
 
 
-/* =========================
+/* ==================================================
    MEMORIES
-========================= */
+   ================================================== */
 
 .memory-grid{
   display:grid;
@@ -410,7 +404,7 @@ h2{
 
   gap:10px;
 
-  margin-top:17px
+  margin-top:17px;
 }
 
 .memory{
@@ -429,52 +423,51 @@ h2{
   background:#ffffff18;
 
   backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px)
+  -webkit-backdrop-filter:blur(10px);
 }
 
 .memory img{
   width:100%;
-
   height:100%;
 
   object-fit:cover;
 
   display:block;
 
-  transition:.2s
+  transition:.2s;
 }
 
 .memory:hover img{
-  transform:scale(1.04)
+  transform:scale(1.04);
 }
 
 
-/* =========================
+/* ==================================================
    WISH
-========================= */
+   ================================================== */
 
 .wish{
-  text-align:center
+  text-align:center;
 }
 
 .heart{
   font-size:50px;
 
-  animation:pulse 1.4s infinite
+  animation:pulse 1.4s infinite;
 }
 
 @keyframes pulse{
 
   50%{
-    transform:scale(1.12)
+    transform:scale(1.12);
   }
 
 }
 
 
-/* =========================
+/* ==================================================
    PHOTO VIEWER
-========================= */
+   ================================================== */
 
 .photo-viewer{
   position:absolute;
@@ -491,41 +484,38 @@ h2{
 
   justify-content:center;
 
-  padding:18px
+  padding:18px;
 }
 
 .photo-viewer.show{
-  display:flex
+  display:flex;
 }
 
 .photo-viewer img{
   width:auto;
-
   height:auto;
 
   max-width:100%;
-
   max-height:80%;
 
   object-fit:contain;
 
-  border-radius:16px
+  border-radius:16px;
 }
 
 .photo-close{
   position:absolute;
 
   top:18px;
-
   right:18px;
 
-  background:#fff
+  background:#fff;
 }
 
 
-/* =========================
+/* ==================================================
    I MISS YOU
-========================= */
+   ================================================== */
 
 .miss{
   position:fixed;
@@ -544,7 +534,7 @@ h2{
 
   text-shadow:0 3px 18px #000;
 
-  animation:miss 1.35s ease forwards
+  animation:miss 1.35s ease forwards;
 }
 
 @keyframes miss{
@@ -554,11 +544,11 @@ h2{
 
     transform:
       translate(-50%,-50%)
-      scale(.8)
+      scale(.8);
   }
 
   15%{
-    opacity:1
+    opacity:1;
   }
 
   100%{
@@ -566,38 +556,38 @@ h2{
 
     transform:
       translate(-50%,-100%)
-      scale(1.08)
+      scale(1.08);
   }
 
 }
 
 
-/* =========================
+/* ==================================================
    MOBILE
-========================= */
+   ================================================== */
 
 @media(max-width:430px){
 
   .phone,
   .content{
-    min-height:650px
+    min-height:650px;
   }
 
   .center{
-    margin-top:30px
+    margin-top:30px;
   }
 
   .app{
-    min-height:96px
+    min-height:96px;
   }
 
   .memory{
-    height:125px
+    height:125px;
   }
 
   .falling-gif{
-    width:60px;
-    height:60px
+    width:58px;
+    height:58px;
   }
 
 }
@@ -612,25 +602,26 @@ h2{
 <div class="phone" id="phone">
 
 
-<!-- =========================
-     FALLING GIF LAYER
-========================= -->
+<!-- ==================================================
+     GIF ANIMATION LAYER
+     ================================================== -->
 
-<div id="gifLayer">
+<div class="gif-layer" id="gifLayer">
 
 <img
   id="fallingGif"
   class="falling-gif"
   src=""
   alt=""
+  draggable="false"
 >
 
 </div>
 
 
-<!-- =========================
+<!-- ==================================================
      MAIN CONTENT
-========================= -->
+     ================================================== -->
 
 <div class="content">
 
@@ -653,7 +644,9 @@ Vaishnavi ♡
 <button
   class="mute"
   id="muteBtn">
-  🔇
+
+🔇
+
 </button>
 
 </div>
@@ -671,9 +664,7 @@ Happy Birthday to you Babu 💌
 </div>
 
 
-<!-- =========================
-     APPS
-========================= -->
+<!-- APPS -->
 
 <div class="apps">
 
@@ -767,9 +758,9 @@ I really miss you moti ♡
 </div>
 
 
-<!-- =========================
+<!-- ==================================================
      APP MODAL
-========================= -->
+     ================================================== -->
 
 <div
   class="modal"
@@ -780,7 +771,9 @@ I really miss you moti ♡
 <button
   class="close"
   id="close">
-  ×
+
+×
+
 </button>
 
 <div id="content"></div>
@@ -790,9 +783,9 @@ I really miss you moti ♡
 </div>
 
 
-<!-- =========================
+<!-- ==================================================
      PHOTO VIEWER
-========================= -->
+     ================================================== -->
 
 <div
   class="photo-viewer"
@@ -801,20 +794,23 @@ I really miss you moti ♡
 <button
   class="photo-close"
   id="photoClose">
-  ×
+
+×
+
 </button>
 
 <img
   id="largePhoto"
   src=""
-  alt="Memory">
+  alt="Memory"
+>
 
 </div>
 
 
-<!-- =========================
+<!-- ==================================================
      BACKGROUND MUSIC
-========================= -->
+     ================================================== -->
 
 <audio
   id="backgroundMusic"
@@ -834,12 +830,17 @@ I really miss you moti ♡
 
 <script>
 
-(()=>{
+(function(){
+
+"use strict";
 
 
-/* =========================
+/* ==================================================
    ELEMENTS
-========================= */
+   ================================================== */
+
+const phone =
+  document.getElementById("phone");
 
 const modal =
   document.getElementById("modal");
@@ -847,14 +848,11 @@ const modal =
 const content =
   document.getElementById("content");
 
-const phone =
-  document.getElementById("phone");
+const mute =
+  document.getElementById("muteBtn");
 
 const bg =
   document.getElementById("backgroundMusic");
-
-const mute =
-  document.getElementById("muteBtn");
 
 const viewer =
   document.getElementById("photoViewer");
@@ -866,267 +864,349 @@ const fallingGif =
   document.getElementById("fallingGif");
 
 
-/* =========================
-   FALLING GIF SYSTEM
-========================= */
+/* ==================================================
+   GIF SYSTEM
+   ================================================== */
 
-const gifList = [
+/*
+   IMPORTANT:
+   Only ONE GIF is loaded at a time.
+*/
 
+const gifs = [
   "images/gif1.gif",
   "images/gif2.gif",
   "images/gif3.gif",
   "images/gif4.gif",
   "images/gif5.gif"
-
 ];
 
 
-let gifIndex = 0;
+let currentGif = 0;
 
-let gifX = 50;
-let gifY = 50;
+let x = 20;
+let y = 20;
 
-let velocityX = 2;
-let velocityY = 2;
+let vx = 1.8;
+let vy = 2.2;
 
-let rotation = 0;
+let angle = 0;
+let spin = 3;
 
-let rotationSpeed = 3;
+let lastTime = 0;
 
-const gifSize = 64;
+let gifRunning = true;
+
+
+/* GIF SIZE */
+
+function getGifSize(){
+
+  return window.innerWidth <= 430
+    ? 58
+    : 64;
+
+}
 
 
 /* RANDOM */
 
 function random(min,max){
 
-  return Math.random() * (max-min) + min;
+  return Math.random() *
+    (max-min) + min;
 
 }
 
 
-/* =========================
-   CHANGE GIF
-========================= */
+/* ==================================================
+   LOAD NEXT GIF
+   ================================================== */
 
-function nextGif(){
+function showNextGif(){
+
+  /*
+     Hide it first.
+  */
 
   fallingGif.style.opacity = "0";
 
 
-  setTimeout(()=>{
+  /*
+     Change source.
+  */
+
+  fallingGif.src =
+    gifs[currentGif];
 
 
-    fallingGif.src =
-      gifList[gifIndex];
+  /*
+     Next GIF.
+  */
+
+  currentGif++;
+
+  if(currentGif >= gifs.length){
+
+    currentGif = 0;
+
+  }
 
 
-    gifIndex++;
+  /*
+     Random starting position.
+  */
+
+  const size =
+    getGifSize();
+
+  const maxX =
+    Math.max(0,
+      phone.clientWidth-size
+    );
+
+  const maxY =
+    Math.max(0,
+      phone.clientHeight-size
+    );
 
 
-    if(gifIndex >= gifList.length){
+  x =
+    random(0,maxX);
 
-      gifIndex = 0;
-
-    }
-
-
-    const width =
-      phone.clientWidth;
-
-    const height =
-      phone.clientHeight;
+  y =
+    random(0,maxY);
 
 
-    const maxX =
-      Math.max(0,width-gifSize);
+  /*
+     Random direction.
+  */
 
-    const maxY =
-      Math.max(0,height-gifSize);
+  vx =
+    random(-2.2,2.2);
 
-
-    /* RANDOM POSITION */
-
-    gifX =
-      random(0,maxX);
-
-    gifY =
-      random(0,maxY);
+  vy =
+    random(-2.2,2.2);
 
 
-    /* RANDOM DIRECTION */
+  /*
+     Prevent very slow movement.
+  */
 
-    velocityX =
-      random(-2.5,2.5);
+  if(Math.abs(vx) < .8){
 
-    velocityY =
-      random(-2.5,2.5);
+    vx =
+      vx < 0
+      ? -.8
+      : .8;
 
-
-    /* PREVENT TOO-SLOW MOVEMENT */
-
-    if(Math.abs(velocityX) < 1){
-
-      velocityX =
-        velocityX < 0
-        ? -1.5
-        : 1.5;
-
-    }
+  }
 
 
-    if(Math.abs(velocityY) < 1){
+  if(Math.abs(vy) < .8){
 
-      velocityY =
-        velocityY < 0
-        ? -1.5
-        : 1.5;
+    vy =
+      vy < 0
+      ? -.8
+      : .8;
 
-    }
-
-
-    /* RANDOM ROTATION */
-
-    rotation =
-      random(0,360);
+  }
 
 
-    rotationSpeed =
-      random(2,5);
+  /*
+     Random spin.
+  */
+
+  spin =
+    random(2,4);
 
 
-    /* CLOCKWISE / ANTICLOCKWISE */
+  if(Math.random() < .5){
 
-    if(Math.random() < 0.5){
+    spin *= -1;
 
-      rotationSpeed *= -1;
-
-    }
+  }
 
 
-    fallingGif.style.opacity =
-      "1";
+  angle =
+    random(0,360);
 
 
-  },150);
+  /*
+     Wait for the GIF to actually load.
+  */
+
+  fallingGif.onload =
+    function(){
+
+      fallingGif.style.opacity =
+        "1";
+
+    };
 
 }
 
 
-/* =========================
-   GIF ANIMATION
-========================= */
+/* ==================================================
+   LIGHTWEIGHT ANIMATION
+   ================================================== */
 
-function animateGif(){
+function moveGif(time){
+
+  if(!gifRunning){
+
+    lastTime = time;
+
+    requestAnimationFrame(moveGif);
+
+    return;
+
+  }
 
 
-  const width =
-    phone.clientWidth;
+  /*
+     Run approximately 30 times per second
+     instead of every possible frame.
+  */
 
-  const height =
-    phone.clientHeight;
+  if(time-lastTime < 33){
+
+    requestAnimationFrame(moveGif);
+
+    return;
+
+  }
+
+
+  lastTime = time;
+
+
+  const size =
+    getGifSize();
 
 
   const maxX =
-    Math.max(0,width-gifSize);
+    Math.max(
+      0,
+      phone.clientWidth-size
+    );
+
 
   const maxY =
-    Math.max(0,height-gifSize);
+    Math.max(
+      0,
+      phone.clientHeight-size
+    );
 
 
-  /* MOVE */
+  /*
+     Move.
+  */
 
-  gifX += velocityX;
+  x += vx;
 
-  gifY += velocityY;
-
-
-  /* LEFT EDGE */
-
-  if(gifX <= 0){
-
-    gifX = 0;
-
-    velocityX =
-      Math.abs(velocityX);
-
-  }
+  y += vy;
 
 
-  /* RIGHT EDGE */
+  /*
+     Bounce LEFT.
+  */
 
-  if(gifX >= maxX){
+  if(x <= 0){
 
-    gifX = maxX;
+    x = 0;
 
-    velocityX =
-      -Math.abs(velocityX);
+    vx =
+      Math.abs(vx);
 
   }
 
 
-  /* TOP EDGE */
+  /*
+     Bounce RIGHT.
+  */
 
-  if(gifY <= 0){
+  if(x >= maxX){
 
-    gifY = 0;
+    x = maxX;
 
-    velocityY =
-      Math.abs(velocityY);
-
-  }
-
-
-  /* BOTTOM EDGE */
-
-  if(gifY >= maxY){
-
-    gifY = maxY;
-
-    velocityY =
-      -Math.abs(velocityY);
+    vx =
+      -Math.abs(vx);
 
   }
 
 
-  /* ROTATE */
+  /*
+     Bounce TOP.
+  */
 
-  rotation += rotationSpeed;
+  if(y <= 0){
+
+    y = 0;
+
+    vy =
+      Math.abs(vy);
+
+  }
 
 
-  /* POSITION */
+  /*
+     Bounce BOTTOM.
+  */
 
-  fallingGif.style.left =
-    gifX + "px";
+  if(y >= maxY){
 
-  fallingGif.style.top =
-    gifY + "px";
+    y = maxY;
 
+    vy =
+      -Math.abs(vy);
+
+  }
+
+
+  /*
+     Spin.
+  */
+
+  angle += spin;
+
+
+  /*
+     Use ONE transform.
+  */
 
   fallingGif.style.transform =
-    `rotate(${rotation}deg)`;
+    "translate3d("+
+    x+"px,"+
+    y+"px,0) rotate("+
+    angle+"deg)";
 
 
-  requestAnimationFrame(animateGif);
+  requestAnimationFrame(moveGif);
 
 }
 
 
-/* START GIF */
+/* ==================================================
+   START GIF
+   ================================================== */
 
-nextGif();
-
-setInterval(
-  nextGif,
-  2000
-);
-
-animateGif();
+showNextGif();
 
 
-/* =========================
+const gifTimer =
+  setInterval(
+    showNextGif,
+    2000
+  );
+
+
+requestAnimationFrame(moveGif);
+
+
+/* ==================================================
    PAGES
-========================= */
+   ================================================== */
 
 const pages = {
 
@@ -1141,7 +1221,6 @@ html:`
 
 <div class="songs">
 
-
 <div class="song">
 
 <strong>
@@ -1155,8 +1234,8 @@ By my side 💞
 <audio controls>
 
 <source
-  src="music/song1.mp3"
-  type="audio/mpeg">
+src="music/song1.mp3"
+type="audio/mpeg">
 
 </audio>
 
@@ -1176,8 +1255,8 @@ First love 💌
 <audio controls>
 
 <source
-  src="music/song2.mp3"
-  type="audio/mpeg">
+src="music/song2.mp3"
+type="audio/mpeg">
 
 </audio>
 
@@ -1197,13 +1276,12 @@ Behja 😗
 <audio controls>
 
 <source
-  src="music/song3.mp3"
-  type="audio/mpeg">
+src="music/song3.mp3"
+type="audio/mpeg">
 
 </audio>
 
 </div>
-
 
 </div>
 
@@ -1222,72 +1300,70 @@ html:`
 
 <div class="memory-grid">
 
-
 <button
-  class="memory"
-  data-photo="images/photo1.jpg">
+class="memory"
+data-photo="images/photo1.jpg">
 
 <img
-  src="images/photo1.jpg"
-  alt="Memory 1">
+src="images/photo1.jpg"
+alt="Memory 1">
 
 </button>
 
 
 <button
-  class="memory"
-  data-photo="images/photo2.jpg">
+class="memory"
+data-photo="images/photo2.jpg">
 
 <img
-  src="images/photo2.jpg"
-  alt="Memory 2">
+src="images/photo2.jpg"
+alt="Memory 2">
 
 </button>
 
 
 <button
-  class="memory"
-  data-photo="images/photo3.jpg">
+class="memory"
+data-photo="images/photo3.jpg">
 
 <img
-  src="images/photo3.jpg"
-  alt="Memory 3">
+src="images/photo3.jpg"
+alt="Memory 3">
 
 </button>
 
 
 <button
-  class="memory"
-  data-photo="images/photo4.jpg">
+class="memory"
+data-photo="images/photo4.jpg">
 
 <img
-  src="images/photo4.jpg"
-  alt="Memory 4">
+src="images/photo4.jpg"
+alt="Memory 4">
 
 </button>
 
 
 <button
-  class="memory"
-  data-photo="images/photo5.jpg">
+class="memory"
+data-photo="images/photo5.jpg">
 
 <img
-  src="images/photo5.jpg"
-  alt="Memory 5">
+src="images/photo5.jpg"
+alt="Memory 5">
 
 </button>
 
 
 <button
-  class="memory"
-  data-photo="images/photo6.jpg">
+class="memory"
+data-photo="images/photo6.jpg">
 
 <img
-  src="images/photo6.jpg"
-  alt="Memory 6">
+src="images/photo6.jpg"
+alt="Memory 6">
 
 </button>
-
 
 </div>
 
@@ -1344,7 +1420,6 @@ html:`
 💗
 </div>
 
-
 <div class="note">
 
 I wish you a life full of things that make you smile for real.
@@ -1375,8 +1450,8 @@ sub:"You found something.",
 html:`
 
 <div
-  class="note"
-  style="text-align:center">
+class="note"
+style="text-align:center">
 
 Okay... this one is just between us. 👀
 
@@ -1417,41 +1492,65 @@ So instead of making one long message, I made you a little world where every app
 
 `
 
+}
 };
 
 
-/* =========================
-   OPEN APP
-========================= */
+/* ==================================================
+   OPEN PAGE
+   ================================================== */
 
-function openPage(k){
+function openPage(pageName){
 
-  const p =
-    pages[k];
+  const page =
+    pages[pageName];
+
+  if(!page){
+
+    return;
+
+  }
 
 
   content.innerHTML =
-    "<h2>"+p.title+"</h2>"+
+    "<h2>"+
+    page.title+
+    "</h2>"+
+
     "<div class='sub'>"+
-    p.sub+
+    page.sub+
     "</div>"+
-    p.html;
+
+    page.html;
 
 
   modal.classList.add("show");
 
 
-  /* ONE SONG AT A TIME */
+  /*
+     Pause GIF while modal is open.
+     This saves resources and keeps
+     mobile performance smooth.
+  */
+
+  gifRunning = false;
+
+
+  /*
+     One song at a time.
+  */
 
   const songs =
-    content.querySelectorAll("audio");
+    content.querySelectorAll(
+      "audio"
+    );
 
 
   songs.forEach(song=>{
 
     song.addEventListener(
       "play",
-      ()=>{
+      function(){
 
         songs.forEach(other=>{
 
@@ -1469,45 +1568,27 @@ function openPage(k){
   });
 
 
-  /* MEMORY CLICK */
+  /*
+     Memory viewer.
+  */
 
-  content
-    .querySelectorAll(".memory")
-    .forEach(x=>{
-
-      x.addEventListener(
-        "click",
-        ()=>{
-
-          large.src =
-            x.dataset.photo;
-
-          viewer.classList.add(
-            "show"
-          );
-
-        }
-      );
-
-    });
-
-}
+  const memories =
+    content.querySelectorAll(
+      ".memory"
+    );
 
 
-/* =========================
-   APP BUTTONS
-========================= */
+  memories.forEach(memory=>{
 
-document
-  .querySelectorAll(".app")
-  .forEach(b=>{
-
-    b.addEventListener(
+    memory.addEventListener(
       "click",
-      ()=>{
+      function(){
 
-        openPage(
-          b.dataset.page
+        large.src =
+          memory.dataset.photo;
+
+        viewer.classList.add(
+          "show"
         );
 
       }
@@ -1515,34 +1596,72 @@ document
 
   });
 
+}
 
-/* =========================
-   CLOSE MODAL
-========================= */
 
-document
-  .getElementById("close")
-  .addEventListener(
+/* ==================================================
+   APP BUTTONS
+   ================================================== */
+
+const appButtons =
+  document.querySelectorAll(
+    ".app"
+  );
+
+
+appButtons.forEach(button=>{
+
+  button.addEventListener(
     "click",
-    ()=>{
+    function(){
 
-      modal.classList.remove(
-        "show"
+      openPage(
+        button.dataset.page
       );
 
     }
   );
 
+});
+
+
+/* ==================================================
+   CLOSE MODAL
+   ================================================== */
+
+const closeButton =
+  document.getElementById(
+    "close"
+  );
+
+
+closeButton.addEventListener(
+  "click",
+  function(){
+
+    modal.classList.remove(
+      "show"
+    );
+
+    gifRunning = true;
+
+  }
+);
+
+
+/* CLICK OUTSIDE SHEET */
 
 modal.addEventListener(
   "click",
-  e=>{
+  function(event){
 
-    if(e.target === modal){
+    if(event.target === modal){
 
       modal.classList.remove(
         "show"
       );
+
+      gifRunning = true;
 
     }
 
@@ -1550,47 +1669,53 @@ modal.addEventListener(
 );
 
 
-/* =========================
+/* ==================================================
    PHOTO VIEWER
-========================= */
+   ================================================== */
 
-document
-  .getElementById("photoClose")
-  .addEventListener(
-    "click",
-    ()=>{
-
-      viewer.classList.remove(
-        "show"
-      );
-
-      large.src = "";
-
-    }
+const photoClose =
+  document.getElementById(
+    "photoClose"
   );
 
 
-/* =========================
+photoClose.addEventListener(
+  "click",
+  function(){
+
+    viewer.classList.remove(
+      "show"
+    );
+
+    large.src = "";
+
+  }
+);
+
+
+/* ==================================================
    BACKGROUND MUSIC
-========================= */
+   ================================================== */
 
 bg.muted = true;
 
-bg.play().catch(()=>{});
+bg.play().catch(
+  function(){}
+);
 
 
-/* =========================
+/* ==================================================
    MUTE BUTTON
-========================= */
+   ================================================== */
 
 let muted = true;
 
 
 mute.addEventListener(
   "click",
-  e=>{
+  function(event){
 
-    e.stopPropagation();
+    event.stopPropagation();
 
 
     bg.muted =
@@ -1609,7 +1734,9 @@ mute.addEventListener(
 
     if(!muted){
 
-      bg.play().catch(()=>{});
+      bg.play().catch(
+        function(){}
+      );
 
     }
 
@@ -1617,17 +1744,19 @@ mute.addEventListener(
 );
 
 
-/* =========================
+/* ==================================================
    START MUSIC AFTER INTERACTION
-========================= */
+   ================================================== */
 
 document.addEventListener(
   "pointerdown",
-  ()=>{
+  function(){
 
     if(!muted){
 
-      bg.play().catch(()=>{});
+      bg.play().catch(
+        function(){}
+      );
 
     }
 
@@ -1636,23 +1765,38 @@ document.addEventListener(
 );
 
 
-/* =========================
+/* ==================================================
    I MISS YOU TOUCH EFFECT
-========================= */
+   ================================================== */
 
-let last = 0;
+let lastTouch = 0;
 
 
 phone.addEventListener(
   "pointerdown",
-  e=>{
+  function(event){
 
+
+    /*
+       Don't trigger on controls.
+    */
 
     if(
-      e.target.closest("#muteBtn") ||
-      e.target.closest("audio") ||
-      e.target.closest(".app") ||
-      e.target.closest(".modal")
+      event.target.closest(
+        "#muteBtn"
+      ) ||
+
+      event.target.closest(
+        "audio"
+      ) ||
+
+      event.target.closest(
+        ".app"
+      ) ||
+
+      event.target.closest(
+        ".modal"
+      )
     ){
 
       return;
@@ -1660,53 +1804,106 @@ phone.addEventListener(
     }
 
 
-    let now =
+    const now =
       Date.now();
 
 
-    if(now-last < 350){
+    if(
+      now-lastTouch < 350
+    ){
 
       return;
 
     }
 
 
-    last = now;
+    lastTouch = now;
 
 
-    let m =
-      document.createElement("div");
+    const message =
+      document.createElement(
+        "div"
+      );
 
 
-    m.className =
+    message.className =
       "miss";
 
 
-    m.textContent =
+    message.textContent =
       "I miss you ♡";
 
 
-    /* EXACT TOUCH POSITION */
-
-    m.style.left =
-      e.clientX+"px";
-
-    m.style.top =
-      e.clientY+"px";
+    message.style.left =
+      event.clientX+"px";
 
 
-    document.body.appendChild(m);
+    message.style.top =
+      event.clientY+"px";
+
+
+    document.body.appendChild(
+      message
+    );
 
 
     setTimeout(
-      ()=>m.remove(),
+      function(){
+
+        message.remove();
+
+      },
       1400
     );
 
 
-    if(muted === false){
+    if(!muted){
 
-      bg.play().catch(()=>{});
+      bg.play().catch(
+        function(){}
+      );
+
+    }
+
+  });
+
+
+/* ==================================================
+   RESIZE
+   ================================================== */
+
+window.addEventListener(
+  "resize",
+  function(){
+
+    const size =
+      getGifSize();
+
+
+    const maxX =
+      Math.max(
+        0,
+        phone.clientWidth-size
+      );
+
+
+    const maxY =
+      Math.max(
+        0,
+        phone.clientHeight-size
+      );
+
+
+    if(x > maxX){
+
+      x = maxX;
+
+    }
+
+
+    if(y > maxY){
+
+      y = maxY;
 
     }
 
