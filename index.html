@@ -63,7 +63,6 @@ body{
   left:0;
   top:0;
 
-  /* 50% LARGER */
   width:96px;
   height:96px;
 
@@ -79,6 +78,79 @@ body{
   will-change:transform;
 
   filter:drop-shadow(0 5px 10px #0008);
+
+  /* ROUND GIF FRAME */
+  border-radius:20px;
+
+  overflow:hidden;
+}
+
+
+/* ==================================================
+   I LOVE YOU MESSAGE
+   ================================================== */
+
+.love-message{
+  position:absolute;
+
+  z-index:5;
+
+  pointer-events:none;
+  user-select:none;
+
+  white-space:nowrap;
+
+  font-size:18px;
+  font-weight:800;
+
+  color:#fff;
+
+  text-shadow:
+    0 2px 10px #000,
+    0 0 12px #ff8fc7;
+
+  opacity:0;
+
+  transform:
+    translate(-50%,-50%)
+    scale(.75);
+
+  animation:
+    lovePop 1.4s ease forwards;
+}
+
+@keyframes lovePop{
+
+  0%{
+    opacity:0;
+
+    transform:
+      translate(-50%,-50%)
+      scale(.75);
+  }
+
+  15%{
+    opacity:1;
+
+    transform:
+      translate(-50%,-50%)
+      scale(1.08);
+  }
+
+  35%{
+    transform:
+      translate(-50%,-50%)
+      scale(1);
+  }
+
+  100%{
+    opacity:0;
+
+    transform:
+      translate(-50%,-110px)
+      scale(1.05);
+  }
+
 }
 
 
@@ -578,10 +650,11 @@ h2{
     height:125px;
   }
 
-  /* 50% larger than previous 58px */
   .falling-gif{
     width:87px;
     height:87px;
+
+    border-radius:18px;
   }
 
 }
@@ -875,20 +948,8 @@ const gifs = [
 
 let currentGif = 0;
 
-
-/*
-   IMPORTANT:
-
-   x and y are NOT reset when
-   the GIF changes.
-
-   Therefore every new GIF starts
-   exactly where the previous one was.
-*/
-
 let x = 20;
 let y = 20;
-
 
 let vx = 1.8;
 let vy = 2.2;
@@ -915,38 +976,99 @@ function getGifSize(){
 
 
 /* ==================================================
+   RANDOM
+   ================================================== */
+
+function random(min,max){
+
+  return Math.random() *
+    (max-min) + min;
+
+}
+
+
+/* ==================================================
+   I LOVE YOU MESSAGE
+   ================================================== */
+
+function showLoveMessage(){
+
+  const message =
+    document.createElement("div");
+
+  message.className =
+    "love-message";
+
+  message.textContent =
+    "I love you 😙";
+
+
+  /*
+     Put message at the
+     exact current GIF position.
+  */
+
+  message.style.left =
+    (x + getGifSize()/2) + "px";
+
+  message.style.top =
+    (y + getGifSize()/2) + "px";
+
+
+  document
+    .getElementById("gifLayer")
+    .appendChild(message);
+
+
+  /*
+     Remove after animation.
+  */
+
+  setTimeout(
+    function(){
+
+      message.remove();
+
+    },
+    1400
+  );
+
+}
+
+
+/* ==================================================
    SHOW NEXT GIF
    ================================================== */
 
 function showNextGif(){
 
   /*
+     First show the message
+     exactly where the previous
+     GIF currently is.
+  */
+
+  showLoveMessage();
+
+
+  /*
      Hide current GIF.
   */
 
-  fallingGif.style.opacity = "0";
+  fallingGif.style.opacity =
+    "0";
 
 
   /*
-     IMPORTANT:
-     We DO NOT change x or y here.
+     DO NOT CHANGE x or y.
 
-     The new GIF therefore appears
-     exactly where the old GIF disappeared.
-  */
-
-
-  /*
-     Change GIF.
+     New GIF starts exactly where
+     previous GIF left.
   */
 
   fallingGif.src =
     gifs[currentGif];
 
-
-  /*
-     Go to next GIF.
-  */
 
   currentGif++;
 
@@ -959,8 +1081,7 @@ function showNextGif(){
 
 
   /*
-     Random spin direction for
-     the new GIF.
+     Random spin direction.
   */
 
   spin =
@@ -975,14 +1096,8 @@ function showNextGif(){
 
 
   /*
-     Keep the current rotation
-     position instead of jumping.
-  */
-
-
-  /*
-     Make sure the GIF is visible
-     after it loads.
+     New GIF becomes visible
+     after loading.
   */
 
   fallingGif.onload =
@@ -997,19 +1112,7 @@ function showNextGif(){
 
 
 /* ==================================================
-   RANDOM
-   ================================================== */
-
-function random(min,max){
-
-  return Math.random() *
-    (max-min) + min;
-
-}
-
-
-/* ==================================================
-   LIGHTWEIGHT ANIMATION
+   GIF ANIMATION
    ================================================== */
 
 function moveGif(time){
@@ -1128,7 +1231,7 @@ function moveGif(time){
 
 
   /*
-     Spin.
+     Rotate.
   */
 
   angle += spin;
@@ -1158,12 +1261,10 @@ function moveGif(time){
 
 showNextGif();
 
-
 setInterval(
   showNextGif,
   2000
 );
-
 
 requestAnimationFrame(
   moveGif
@@ -1493,16 +1594,8 @@ function openPage(pageName){
   modal.classList.add("show");
 
 
-  /*
-     Pause GIF while modal is open.
-  */
-
   gifRunning = false;
 
-
-  /*
-     One song at a time.
-  */
 
   const songs =
     content.querySelectorAll(
@@ -1531,10 +1624,6 @@ function openPage(pageName){
 
   });
 
-
-  /*
-     Memory viewer.
-  */
 
   const memories =
     content.querySelectorAll(
@@ -1613,8 +1702,6 @@ closeButton.addEventListener(
 );
 
 
-/* CLICK OUTSIDE SHEET */
-
 modal.addEventListener(
   "click",
   function(event){
@@ -1681,14 +1768,11 @@ mute.addEventListener(
 
     event.stopPropagation();
 
-
     bg.muted =
       !bg.muted;
 
-
     muted =
       bg.muted;
-
 
     mute.textContent =
       muted
@@ -1739,7 +1823,6 @@ let lastTouch = 0;
 phone.addEventListener(
   "pointerdown",
   function(event){
-
 
     if(
       event.target.closest(
