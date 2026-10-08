@@ -7,14 +7,32 @@
 
 <style>
 
+/* ==================================================
+   CUSTOM FONT
+   ================================================== */
+
+@font-face{
+  font-family:"MyFont";
+  src:url("fonts/MyFont.ttf") format("truetype");
+  font-weight:100 900;
+  font-style:normal;
+  font-display:swap;
+}
+
+
+/* ==================================================
+   GLOBAL
+   ================================================== */
+
 *{
   box-sizing:border-box;
+  font-family:"MyFont",sans-serif;
 }
 
 html,body{
   margin:0;
   min-height:100%;
-  font-family:system-ui,sans-serif;
+  font-family:"MyFont",sans-serif;
 }
 
 body{
@@ -79,7 +97,6 @@ body{
 
   filter:drop-shadow(0 5px 10px #0008);
 
-  /* ROUND GIF FRAME */
   border-radius:20px;
 
   overflow:hidden;
@@ -1003,11 +1020,6 @@ function showLoveMessage(){
     "I love you 😙";
 
 
-  /*
-     Put message at the
-     exact current GIF position.
-  */
-
   message.style.left =
     (x + getGifSize()/2) + "px";
 
@@ -1019,10 +1031,6 @@ function showLoveMessage(){
     .getElementById("gifLayer")
     .appendChild(message);
 
-
-  /*
-     Remove after animation.
-  */
 
   setTimeout(
     function(){
@@ -1042,36 +1050,15 @@ function showLoveMessage(){
 
 function showNextGif(){
 
-  /*
-     First show the message
-     exactly where the previous
-     GIF currently is.
-  */
-
   showLoveMessage();
-
-
-  /*
-     Hide current GIF.
-  */
 
   fallingGif.style.opacity =
     "0";
 
-
-  /*
-     DO NOT CHANGE x or y.
-
-     New GIF starts exactly where
-     previous GIF left.
-  */
-
   fallingGif.src =
     gifs[currentGif];
 
-
   currentGif++;
-
 
   if(currentGif >= gifs.length){
 
@@ -1079,26 +1066,14 @@ function showNextGif(){
 
   }
 
-
-  /*
-     Random spin direction.
-  */
-
   spin =
     random(2,4);
-
 
   if(Math.random() < 0.5){
 
     spin *= -1;
 
   }
-
-
-  /*
-     New GIF becomes visible
-     after loading.
-  */
 
   fallingGif.onload =
     function(){
@@ -1129,10 +1104,6 @@ function moveGif(time){
 
   }
 
-
-  /*
-     Around 30 FPS.
-  */
 
   if(time-lastTime < 33){
 
@@ -1166,17 +1137,9 @@ function moveGif(time){
     );
 
 
-  /*
-     Move.
-  */
-
   x += vx;
   y += vy;
 
-
-  /*
-     LEFT EDGE
-  */
 
   if(x <= 0){
 
@@ -1188,10 +1151,6 @@ function moveGif(time){
   }
 
 
-  /*
-     RIGHT EDGE
-  */
-
   if(x >= maxX){
 
     x = maxX;
@@ -1201,10 +1160,6 @@ function moveGif(time){
 
   }
 
-
-  /*
-     TOP EDGE
-  */
 
   if(y <= 0){
 
@@ -1216,10 +1171,6 @@ function moveGif(time){
   }
 
 
-  /*
-     BOTTOM EDGE
-  */
-
   if(y >= maxY){
 
     y = maxY;
@@ -1230,16 +1181,8 @@ function moveGif(time){
   }
 
 
-  /*
-     Rotate.
-  */
-
   angle += spin;
 
-
-  /*
-     Position + rotation.
-  */
 
   fallingGif.style.transform =
     "translate3d("+
@@ -1960,3 +1903,36 @@ window.addEventListener(
 
 </body>
 </html>
+
+Your folder should look exactly like this
+
+your-repository/
+│
+├── index.html
+│
+├── fonts/
+│   └── MyFont.ttf
+│
+├── images/
+│   ├── background.jpg
+│   ├── gif1.gif
+│   ├── gif2.gif
+│   ├── gif3.gif
+│   ├── gif4.gif
+│   ├── gif5.gif
+│   ├── photo1.jpg
+│   └── ...
+│
+└── music/
+    ├── background.mp3
+    ├── song1.mp3
+    ├── song2.mp3
+    └── song3.mp3
+
+One thing you must change: replace "MyFont.ttf" in the folder with your actual font filename, or change this line:
+
+src:url("fonts/MyFont.ttf") format("truetype");
+
+to your actual filename.
+
+The "* { font-family:"MyFont",sans-serif; }" line makes the custom font apply across the whole website, including dynamically generated modal content.
