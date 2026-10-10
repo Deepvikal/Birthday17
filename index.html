@@ -489,7 +489,27 @@ h2{
 
   box-shadow:inset 0 1px 1px #ffffff20;
 }
+/* SECRET PAGE VIDEO */
 
+.secret-video-frame{
+  width:100%;
+  margin:18px auto 0;
+  padding:5px;
+  border:2px solid #fff;
+  border-radius:24px;
+  background:#ffffff18;
+  overflow:hidden;
+  box-shadow:0 8px 24px #0005;
+}
+
+.secret-video{
+  display:block;
+  width:100%;
+  max-height:350px;
+  object-fit:contain;
+  border-radius:16px;
+  background:#000;
+}
 
 /* ==================================================
    SONGS
@@ -1497,9 +1517,9 @@ Bs itna hi bol sakta hu abhi to, baaki ye website banayi thoda express karne ke 
 
 wishes:{
 
-title:"I wanna sayyy 🌷",
+title:"I wanna sayyy 😔",
 
-sub:"Wishes for everything ahead.",
+
 
 html:`
 
@@ -1511,7 +1531,7 @@ html:`
 
 <div class="note">
 
-Maine kabhi nahi socha ki hum alag honge. Mujhe nahi pata kaise hoga jab tu nahi hogi. Abhi bhi agar man nahi lagta, ek ajeeb feel hota hai, head down karke humne jo baare mein sochta hu, humari achhi memories ke baare mein.
+Maine kabhi nahi socha ki hum alag honge. Mujhe nahi pata kaise hoga jab tu nahi hogi. Abhi bhi agar man nahi lagta, aise ajeeb feel hota hai, head down karke humne jo baare mein sochta hu, humari achhi memories ke baare mein.
 Maine bahot galtiya ki. Mujhe bahot saari cheezo ka guilt hai, school mein bahot hurt kiya tujhe.
 But I promise mere kehne ka matlab wo nahi hota tha kabhi bhi, bas gussa jyada — par jaane-anjaane mein hurt to kiya hi — maaf kardena uske liye.
 Maine bina permission ke 2 baar kiss kiya, uska bahot regret h. I am sorry (really).
@@ -1536,33 +1556,24 @@ Aise din mujhe ye baate nahi karni chahiye na, bs yahi tha, baate to bahot yahan
 
 
 secret:{
+  title:"🔐",
+  sub:"You found something.",
+  html:`
+    <div class="note" style="text-align:center">
+      Okay... this one is just between us. 👀
 
-title:"🔐",
-
-sub:"You found something.",
-
-html:`
-
-<div
-class="note"
-style="text-align:center">
-
-Okay... this one is just between us. 👀
-
-<br><br>
-
-<b>
-.
-</b>
-
-<br><br>
-
-
-
-</div>
-
-`
-
+      <div class="secret-video-frame">
+        <video
+          class="secret-video"
+          controls
+          playsinline
+          preload="metadata">
+          <source src="videos/secret.mp4" type="video/mp4">
+          Your browser does not support this video.
+        </video>
+      </div>
+    </div>
+  `
 },
 
 
