@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>For Vaishnavi ♡</title>
-
-<style>
+<title>For Vaishnavi ♡</title><style>
 
 @font-face{
   font-family:"MyFont";
@@ -755,256 +752,128 @@ h2{
 
 }
 
-</style>
-</head>
-
-
-<body>
-
-
-<div class="phone" id="phone">
-
-
-<!-- ==================================================
+</style></head><body><div class="phone" id="phone"><!-- ==================================================
      FIRST OPEN MESSAGE
-     ================================================== -->
-
-<div
+     ================================================== --><div
   class="music-hint"
-  id="musicHint">
+  id="musicHint">🎵 Tap 🔇 above to turn on the birthday song ♡
 
-🎵 Tap 🔇 above to turn on the birthday song ♡
-
-</div>
-
-
-<!-- ==================================================
+</div><!-- ==================================================
      GIF ANIMATION LAYER
-     ================================================== -->
+     ================================================== --><div class="gif-layer" id="gifLayer"><img
+id="fallingGif"
+class="falling-gif"
+src=""
+alt=""
+draggable="false"
 
-<div class="gif-layer" id="gifLayer">
+«»
 
-<img
-  id="fallingGif"
-  class="falling-gif"
-  src=""
-  alt=""
-  draggable="false"
->
-
-</div>
-
-
-<!-- ==================================================
+</div><!-- ==================================================
      MAIN CONTENT
-     ================================================== -->
-
-<div class="content">
-
-
-<div class="top">
-
-<div>
-
-<div class="hello">
+     ================================================== --><div class="content"><div class="top"><div><div class="hello">
 A little world made for
-</div>
-
-<div class="name">
+</div><div class="name">
 Vaishnavi ♡
-</div>
-
-</div>
-
-
-<button
-  class="mute"
-  id="muteBtn">
+</div></div><button
+class="mute"
+id="muteBtn">
 
 🔇
 
-</button>
-
-</div>
-
-
-<div class="center">
-
-<h1>
+</button></div><div class="center"><h1>
 Happy Birthday to you Babu 💌
-</h1>
-
-<p>
-</p>
-
-</div>
-
-
-<!-- APPS -->
-
-<div class="apps">
-
-
-<button
-  class="app"
-  data-page="notes">
+</h1><p>
+</p></div><!-- APPS --><div class="apps"><button
+class="app"
+data-page="notes">
 
 <div class="icon">
 💌
-</div>
+</div><span></span>
 
-<span></span>
-
-</button>
-
-
-<button
-  class="app"
-  data-page="wishes">
+</button><button
+class="app"
+data-page="wishes">
 
 <div class="icon">
 🤞
-</div>
+</div><span></span>
 
-<span></span>
-
-</button>
-
-
-<button
-  class="app"
-  data-page="music">
+</button><button
+class="app"
+data-page="music">
 
 <div class="icon">
 🎶
-</div>
+</div><span></span>
 
-<span></span>
-
-</button>
-
-
-<button
-  class="app"
-  data-page="memories">
+</button><button
+class="app"
+data-page="memories">
 
 <div class="icon">
 📷
-</div>
+</div><span></span>
 
-<span></span>
-
-</button>
-
-
-<button
-  class="app"
-  data-page="about">
+</button><button
+class="app"
+data-page="about">
 
 <div class="icon">
 🐼
-</div>
+</div><span></span>
 
-<span></span>
-
-</button>
-
-
-<button
-  class="app"
-  data-page="secret">
+</button><button
+class="app"
+data-page="secret">
 
 <div class="icon">
 😶‍🌫️
-</div>
+</div><span></span>
 
-<span></span>
-
-</button>
-
-
-</div>
-
-
-<div class="bottom">
+</button></div><div class="bottom">
 I really miss you moti ♡
-</div>
-
-
-</div>
-
-
-<!-- ==================================================
+</div></div><!-- ==================================================
      APP MODAL
-     ================================================== -->
-
-<div
+     ================================================== --><div
   class="modal"
-  id="modal">
-
-<div class="sheet">
-
-<button
-  class="close"
-  id="close">
+  id="modal"><div class="sheet"><button
+class="close"
+id="close">
 
 ×
 
-</button>
-
-<div id="content"></div>
-
-</div>
-
-</div>
-
-
-<!-- ==================================================
+</button><div id="content"></div></div></div><!-- ==================================================
      PHOTO VIEWER
-     ================================================== -->
-
-<div
+     ================================================== --><div
   class="photo-viewer"
-  id="photoViewer">
-
-<button
-  class="photo-close"
-  id="photoClose">
+  id="photoViewer"><button
+class="photo-close"
+id="photoClose">
 
 ×
 
-</button>
+</button><img
+id="largePhoto"
+src=""
+alt="Memory"
 
-<img
-  id="largePhoto"
-  src=""
-  alt="Memory"
->
+«»
 
-</div>
-
-
-<!-- ==================================================
+</div><!-- ==================================================
      BACKGROUND MUSIC
-     ================================================== -->
-
-<audio
-  id="backgroundMusic"
-  loop
-  autoplay
-  muted>
+     ================================================== --><audio
+id="backgroundMusic"
+loop
+autoplay
+muted>
 
 <source
-  src="music/background.mp3"
-  type="audio/mpeg">
+src="music/background.mp3"
+type="audio/mpeg">
 
-</audio>
-
-
-</div>
-
-
-<script>
+</audio></div><script>
 
 (function(){
 
@@ -1041,6 +910,58 @@ const fallingGif =
 
 const musicHint =
   document.getElementById("musicHint");
+
+
+/* ==================================================
+   BACKGROUND MUSIC STATE
+   ================================================== */
+
+let muted = true;
+
+/* Background music can resume after app media stops,
+   but not automatically after the app is closed. */
+
+let backgroundResumeAllowed = true;
+
+
+/* ==================================================
+   APP MEDIA CONTROL
+   ================================================== */
+
+function isAppMediaPlaying(){
+
+  const media =
+    content.querySelectorAll("audio, video");
+
+  return Array.from(media).some(function(item){
+
+    return !item.paused && !item.ended;
+
+  });
+
+}
+
+
+function pauseBackgroundMusic(){
+
+  bg.pause();
+
+}
+
+
+function resumeBackgroundMusic(){
+
+  if(
+    !muted &&
+    backgroundResumeAllowed &&
+    !isAppMediaPlaying()
+  ){
+
+    bg.play().catch(function(){});
+
+  }
+
+}
 
 
 /* ==================================================
@@ -1635,6 +1556,75 @@ function openPage(pageName){
   gifRunning = false;
 
 
+  /* ==================================================
+     APP SONG AND VIDEO CONTROL
+     ================================================== */
+
+  const mediaItems =
+    content.querySelectorAll(
+      "audio, video"
+    );
+
+
+  mediaItems.forEach(function(mediaItem){
+
+    mediaItem.addEventListener(
+      "play",
+      function(){
+
+        /* Allow music to resume when app media stops. */
+
+        backgroundResumeAllowed = true;
+
+        /* Pause background music while app media plays. */
+
+        pauseBackgroundMusic();
+
+
+        /* Pause other songs/videos. */
+
+        mediaItems.forEach(function(otherMedia){
+
+          if(otherMedia !== mediaItem){
+
+            otherMedia.pause();
+
+          }
+
+        });
+
+      }
+    );
+
+
+    function handleMediaStopped(){
+
+      setTimeout(function(){
+
+        if(!isAppMediaPlaying()){
+
+          resumeBackgroundMusic();
+
+        }
+
+      },0);
+
+    }
+
+
+    mediaItem.addEventListener(
+      "pause",
+      handleMediaStopped
+    );
+
+    mediaItem.addEventListener(
+      "ended",
+      handleMediaStopped
+    );
+
+  });
+
+
   const songs =
     content.querySelectorAll(
       "audio"
@@ -1730,6 +1720,24 @@ closeButton.addEventListener(
   "click",
   function(){
 
+    /* Stop all app media before closing the app. */
+
+    content.querySelectorAll("audio, video").forEach(
+      function(mediaItem){
+
+        mediaItem.pause();
+
+      }
+    );
+
+
+    /* Do not restart background music after closing. */
+
+    backgroundResumeAllowed = false;
+
+    bg.pause();
+
+
     modal.classList.remove(
       "show"
     );
@@ -1745,6 +1753,24 @@ modal.addEventListener(
   function(event){
 
     if(event.target === modal){
+
+      /* Stop all app media before closing the app. */
+
+      content.querySelectorAll("audio, video").forEach(
+        function(mediaItem){
+
+          mediaItem.pause();
+
+        }
+      );
+
+
+      /* Do not restart background music after closing. */
+
+      backgroundResumeAllowed = false;
+
+      bg.pause();
+
 
       modal.classList.remove(
         "show"
@@ -1797,9 +1823,6 @@ bg.play().catch(
    MUTE BUTTON
    ================================================== */
 
-let muted = true;
-
-
 mute.addEventListener(
   "click",
   function(event){
@@ -1820,9 +1843,19 @@ mute.addEventListener(
 
     if(!muted){
 
-      bg.play().catch(
-        function(){}
-      );
+      /* Manually enabling music allows it to play again. */
+
+      backgroundResumeAllowed = true;
+
+
+      if(!isAppMediaPlaying()){
+
+        bg.play().catch(
+          function(){}
+        );
+
+      }
+
 
       /* Hide first-open message */
 
@@ -1854,7 +1887,11 @@ document.addEventListener(
   "pointerdown",
   function(){
 
-    if(!muted){
+    if(
+      !muted &&
+      backgroundResumeAllowed &&
+      !isAppMediaPlaying()
+    ){
 
       bg.play().catch(
         function(){}
@@ -1885,6 +1922,10 @@ phone.addEventListener(
 
       event.target.closest(
         "audio"
+      ) ||
+
+      event.target.closest(
+        "video"
       ) ||
 
       event.target.closest(
@@ -1954,7 +1995,11 @@ phone.addEventListener(
     );
 
 
-    if(!muted){
+    if(
+      !muted &&
+      backgroundResumeAllowed &&
+      !isAppMediaPlaying()
+    ){
 
       bg.play().catch(
         function(){}
@@ -2010,7 +2055,5 @@ window.addEventListener(
 
 })();
 
-</script>
-
-</body>
-</html>
+</script></body>
+     </html>
