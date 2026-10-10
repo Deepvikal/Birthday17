@@ -1,8 +1,11 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>For Vaishnavi ♡</title><style>
+<title>For Vaishnavi ♡</title>
+
+<style>
 
 @font-face{
   font-family:"MyFont";
@@ -54,19 +57,31 @@ body{
 
 .music-hint{
   position:absolute;
+
   top:16px;
   left:50%;
+
   transform:translateX(-50%);
+
   z-index:30;
+
   width:calc(100% - 90px);
+
   padding:10px 14px;
+
   text-align:center;
+
   font-size:12px;
   font-weight:700;
+
   color:#fff;
+
   background:#00000080;
+
   border:1px solid #ffffff35;
+
   border-radius:18px;
+
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
 
@@ -74,10 +89,12 @@ body{
     0 5px 20px #0005,
     inset 0 1px 1px #ffffff20;
 
-  animation:hintPulse 1.8s ease-in-out infinite;
+  animation:
+    hintPulse 1.8s ease-in-out infinite;
 }
 
 @keyframes hintPulse{
+
   0%,100%{
     opacity:.75;
     transform:translateX(-50%) translateY(0);
@@ -87,12 +104,17 @@ body{
     opacity:1;
     transform:translateX(-50%) translateY(3px);
   }
+
 }
 
 .music-hint.hide{
   opacity:0;
   pointer-events:none;
-  transform:translateX(-50%) translateY(-10px);
+
+  transform:
+    translateX(-50%)
+    translateY(-10px);
+
   transition:.35s ease;
 }
 
@@ -105,25 +127,37 @@ body{
   position:absolute;
   inset:0;
   overflow:hidden;
+
   z-index:1;
+
   pointer-events:none;
   touch-action:none;
 }
 
 .falling-gif{
   position:absolute;
+
   left:0;
   top:0;
+
   width:96px;
   height:96px;
+
   object-fit:contain;
+
   pointer-events:none;
   user-select:none;
+
   opacity:0;
+
   transform-origin:center center;
+
   will-change:transform;
+
   filter:drop-shadow(0 5px 10px #0008);
+
   border-radius:20px;
+
   overflow:hidden;
 }
 
@@ -134,12 +168,17 @@ body{
 
 .love-message{
   position:absolute;
+
   z-index:5;
+
   pointer-events:none;
   user-select:none;
+
   white-space:nowrap;
+
   font-size:18px;
   font-weight:800;
+
   color:#fff;
 
   text-shadow:
@@ -147,29 +186,47 @@ body{
     0 0 12px #ff8fc7;
 
   opacity:0;
-  transform:translate(-50%,-50%) scale(.75);
-  animation:lovePop 1.4s ease forwards;
+
+  transform:
+    translate(-50%,-50%)
+    scale(.75);
+
+  animation:
+    lovePop 1.4s ease forwards;
 }
 
 @keyframes lovePop{
+
   0%{
     opacity:0;
-    transform:translate(-50%,-50%) scale(.75);
+
+    transform:
+      translate(-50%,-50%)
+      scale(.75);
   }
 
   15%{
     opacity:1;
-    transform:translate(-50%,-50%) scale(1.08);
+
+    transform:
+      translate(-50%,-50%)
+      scale(1.08);
   }
 
   35%{
-    transform:translate(-50%,-50%) scale(1);
+    transform:
+      translate(-50%,-50%)
+      scale(1);
   }
 
   100%{
     opacity:0;
-    transform:translate(-50%,-110px) scale(1.05);
+
+    transform:
+      translate(-50%,-110px)
+      scale(1.05);
   }
+
 }
 
 
@@ -180,7 +237,9 @@ body{
 .content{
   position:relative;
   z-index:2;
+
   min-height:680px;
+
   padding:24px 18px 18px;
 }
 
@@ -241,12 +300,17 @@ body{
 .app{
   position:relative;
   z-index:3;
+
   border:1px solid #ffffff38;
   background:#ffffff24;
   color:#fff;
+
   border-radius:22px;
+
   padding:15px 7px;
+
   min-height:106px;
+
   cursor:pointer;
 
   backdrop-filter:blur(10px);
@@ -282,11 +346,15 @@ body{
 
 .bottom{
   position:absolute;
+
   left:18px;
   right:18px;
   bottom:18px;
+
   text-align:center;
+
   font-size:12px;
+
   opacity:.75;
 }
 
@@ -297,15 +365,20 @@ body{
 
 .modal{
   position:absolute;
+
   inset:0;
+
   background:#00000055;
 
   backdrop-filter:blur(3px);
   -webkit-backdrop-filter:blur(3px);
 
   z-index:10;
+
   display:none;
+
   align-items:flex-end;
+
   padding:10px;
 }
 
@@ -315,12 +388,19 @@ body{
 
 .sheet{
   width:100%;
+
   max-height:88%;
+
   overflow:auto;
+
   background:#ffffff20;
+
   color:#fff;
+
   border:1px solid #ffffff38;
+
   border-radius:28px;
+
   padding:22px;
 
   backdrop-filter:blur(20px) saturate(130%);
@@ -334,6 +414,7 @@ body{
 }
 
 @keyframes up{
+
   from{
     transform:translateY(35px);
     opacity:0;
@@ -343,17 +424,24 @@ body{
     transform:translateY(0);
     opacity:1;
   }
+
 }
 
 .close,
 .photo-close{
   border:0;
+
   background:#ffffffcc;
+
   color:#241c22;
+
   border-radius:50%;
+
   width:40px;
   height:40px;
+
   font-size:20px;
+
   cursor:pointer;
 }
 
@@ -363,7 +451,9 @@ body{
 
 h2{
   font-size:25px;
+
   margin:3px 45px 7px 0;
+
   text-shadow:0 2px 10px #0006;
 }
 
@@ -379,12 +469,19 @@ h2{
 
 .note{
   background:#ffffff18;
+
   border:1px solid #ffffff25;
+
   color:#fff;
+
   border-radius:20px;
+
   padding:18px;
+
   margin-top:17px;
+
   line-height:1.75;
+
   font-size:15px;
 
   backdrop-filter:blur(12px);
@@ -395,49 +492,26 @@ h2{
 
 
 /* ==================================================
-   SECRET PAGE VIDEO
-   ================================================== */
-
-.secret-video-frame{
-  width:100%;
-  margin:18px auto 0;
-  padding:5px;
-  border:2px solid #fff;
-  border-radius:24px;
-  background:#ffffff18;
-  overflow:hidden;
-
-  box-shadow:
-    0 0 0 1px #ffffff30,
-    0 8px 24px #0005,
-    0 0 18px #ffffff20;
-}
-
-.secret-video{
-  display:block;
-  width:100%;
-  max-height:350px;
-  object-fit:contain;
-  border-radius:16px;
-  background:#000;
-}
-
-
-/* ==================================================
    SONGS
    ================================================== */
 
 .songs{
   display:grid;
+
   gap:11px;
+
   margin-top:18px;
 }
 
 .song{
   background:#00000045;
+
   border:1px solid #ffffff25;
+
   color:#fff;
+
   border-radius:18px;
+
   padding:15px;
 
   backdrop-filter:blur(12px);
@@ -466,18 +540,27 @@ h2{
 
 .memory-grid{
   display:grid;
+
   grid-template-columns:repeat(2,1fr);
+
   gap:10px;
+
   margin-top:17px;
 }
 
 .memory{
   border:1px solid #ffffff30;
+
   padding:0;
+
   height:150px;
+
   border-radius:18px;
+
   overflow:hidden;
+
   cursor:pointer;
+
   background:#ffffff18;
 
   backdrop-filter:blur(10px);
@@ -487,8 +570,11 @@ h2{
 .memory img{
   width:100%;
   height:100%;
+
   object-fit:cover;
+
   display:block;
+
   transition:.2s;
 }
 
@@ -507,13 +593,16 @@ h2{
 
 .heart{
   font-size:50px;
+
   animation:pulse 1.4s infinite;
 }
 
 @keyframes pulse{
+
   50%{
     transform:scale(1.12);
   }
+
 }
 
 
@@ -523,12 +612,19 @@ h2{
 
 .photo-viewer{
   position:absolute;
+
   inset:0;
+
   background:#000eb;
+
   z-index:20;
+
   display:none;
+
   align-items:center;
+
   justify-content:center;
+
   padding:18px;
 }
 
@@ -539,16 +635,21 @@ h2{
 .photo-viewer img{
   width:auto;
   height:auto;
+
   max-width:100%;
   max-height:80%;
+
   object-fit:contain;
+
   border-radius:16px;
 }
 
 .photo-close{
   position:absolute;
+
   top:18px;
   right:18px;
+
   background:#fff;
 }
 
@@ -559,20 +660,32 @@ h2{
 
 .miss{
   position:fixed;
+
   transform:translate(-50%,-50%);
+
   z-index:50;
+
   pointer-events:none;
+
   font-weight:800;
+
   font-size:22px;
+
   color:#fff;
+
   text-shadow:0 3px 18px #000;
+
   animation:miss 1.35s ease forwards;
 }
 
 @keyframes miss{
+
   0%{
     opacity:0;
-    transform:translate(-50%,-50%) scale(.8);
+
+    transform:
+      translate(-50%,-50%)
+      scale(.8);
   }
 
   15%{
@@ -581,8 +694,12 @@ h2{
 
   100%{
     opacity:0;
-    transform:translate(-50%,-100%) scale(1.08);
+
+    transform:
+      translate(-50%,-100%)
+      scale(1.08);
   }
+
 }
 
 
@@ -612,91 +729,262 @@ h2{
   .falling-gif{
     width:87px;
     height:87px;
+
     border-radius:18px;
   }
 
 }
 
-</style></head><body><div class="phone" id="phone"><!-- ==================================================
+</style>
+</head>
+
+
+<body>
+
+
+<div class="phone" id="phone">
+
+
+<!-- ==================================================
      FIRST OPEN MESSAGE
-     ================================================== --><div class="music-hint" id="musicHint">
+     ================================================== -->
+
+<div
+  class="music-hint"
+  id="musicHint">
+
 🎵 Tap 🔇 above to turn on the birthday song ♡
-</div><!-- ==================================================
+
+</div>
+
+
+<!-- ==================================================
      GIF ANIMATION LAYER
-     ================================================== --><div class="gif-layer" id="gifLayer"><img
-id="fallingGif"
-class="falling-gif"
-src=""
-alt=""
-draggable="false"
+     ================================================== -->
 
-«»
+<div class="gif-layer" id="gifLayer">
 
-</div><!-- ==================================================
+<img
+  id="fallingGif"
+  class="falling-gif"
+  src=""
+  alt=""
+  draggable="false"
+>
+
+</div>
+
+
+<!-- ==================================================
      MAIN CONTENT
-     ================================================== --><div class="content"><div class="top"><div><div class="hello">
+     ================================================== -->
+
+<div class="content">
+
+
+<div class="top">
+
+<div>
+
+<div class="hello">
 A little world made for
-</div><div class="name">
+</div>
+
+<div class="name">
 Vaishnavi ♡
-</div></div><button class="mute" id="muteBtn">
+</div>
+
+</div>
+
+
+<button
+  class="mute"
+  id="muteBtn">
+
 🔇
-</button></div><div class="center"><h1>
+
+</button>
+
+</div>
+
+
+<div class="center">
+
+<h1>
 Happy Birthday to you Babu 💌
-</h1><p>
-</p></div><!-- APPS --><div class="apps"><button class="app" data-page="notes"><div class="icon">
+</h1>
+
+<p>
+</p>
+
+</div>
+
+
+<!-- APPS -->
+
+<div class="apps">
+
+
+<button
+  class="app"
+  data-page="notes">
+
+<div class="icon">
 💌
-</div><span></span>
+</div>
 
-</button><button class="app" data-page="wishes"><div class="icon">
+<span></span>
+
+</button>
+
+
+<button
+  class="app"
+  data-page="wishes">
+
+<div class="icon">
 🤞
-</div><span></span>
+</div>
 
-</button><button class="app" data-page="music"><div class="icon">
+<span></span>
+
+</button>
+
+
+<button
+  class="app"
+  data-page="music">
+
+<div class="icon">
 🎶
-</div><span></span>
+</div>
 
-</button><button class="app" data-page="memories"><div class="icon">
+<span></span>
+
+</button>
+
+
+<button
+  class="app"
+  data-page="memories">
+
+<div class="icon">
 📷
-</div><span></span>
+</div>
 
-</button><button class="app" data-page="about"><div class="icon">
+<span></span>
+
+</button>
+
+
+<button
+  class="app"
+  data-page="about">
+
+<div class="icon">
 🐼
-</div><span></span>
+</div>
 
-</button><button class="app" data-page="secret"><div class="icon">
+<span></span>
+
+</button>
+
+
+<button
+  class="app"
+  data-page="secret">
+
+<div class="icon">
 😶‍🌫️
-</div><span></span>
+</div>
 
-</button></div><div class="bottom">
+<span></span>
+
+</button>
+
+
+</div>
+
+
+<div class="bottom">
 I really miss you moti ♡
-</div></div><!-- ==================================================
+</div>
+
+
+</div>
+
+
+<!-- ==================================================
      APP MODAL
-     ================================================== --><div class="modal" id="modal"><div class="sheet"><button class="close" id="close">
+     ================================================== -->
+
+<div
+  class="modal"
+  id="modal">
+
+<div class="sheet">
+
+<button
+  class="close"
+  id="close">
+
 ×
-</button><div id="content"></div></div></div><!-- ==================================================
+
+</button>
+
+<div id="content"></div>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
      PHOTO VIEWER
-     ================================================== --><div class="photo-viewer" id="photoViewer"><button class="photo-close" id="photoClose">
+     ================================================== -->
+
+<div
+  class="photo-viewer"
+  id="photoViewer">
+
+<button
+  class="photo-close"
+  id="photoClose">
+
 ×
-</button><img
-id="largePhoto"
-src=""
-alt="Memory"
 
-«»
+</button>
 
-</div><!-- ==================================================
+<img
+  id="largePhoto"
+  src=""
+  alt="Memory"
+>
+
+</div>
+
+
+<!-- ==================================================
      BACKGROUND MUSIC
-     ================================================== --><audio
-id="backgroundMusic"
-loop
-autoplay
-muted>
+     ================================================== -->
+
+<audio
+  id="backgroundMusic"
+  loop
+  autoplay
+  muted>
 
 <source
-src="music/background.mp3"
-type="audio/mpeg">
+  src="music/background.mp3"
+  type="audio/mpeg">
 
-</audio></div><script>
+</audio>
+
+
+</div>
+
+
+<script>
 
 (function(){
 
@@ -740,11 +1028,13 @@ const musicHint =
    ================================================== */
 
 const gifs = [
+
   "images/gif1.gif",
   "images/gif2.gif",
   "images/gif3.gif",
   "images/gif4.gif",
   "images/gif5.gif"
+
 ];
 
 
@@ -881,7 +1171,9 @@ function moveGif(time){
 
     lastTime = time;
 
-    requestAnimationFrame(moveGif);
+    requestAnimationFrame(
+      moveGif
+    );
 
     return;
 
@@ -890,7 +1182,9 @@ function moveGif(time){
 
   if(time-lastTime < 33){
 
-    requestAnimationFrame(moveGif);
+    requestAnimationFrame(
+      moveGif
+    );
 
     return;
 
@@ -972,7 +1266,9 @@ function moveGif(time){
     angle+"deg)";
 
 
-  requestAnimationFrame(moveGif);
+  requestAnimationFrame(
+    moveGif
+  );
 
 }
 
@@ -983,9 +1279,14 @@ function moveGif(time){
 
 showNextGif();
 
-setInterval(showNextGif,2000);
+setInterval(
+  showNextGif,
+  2000
+);
 
-requestAnimationFrame(moveGif);
+requestAnimationFrame(
+  moveGif
+);
 
 
 /* ==================================================
@@ -1084,7 +1385,9 @@ html:`
 
 <div class="memory-grid">
 
-<button class="memory" data-photo="images/photo1.jpg">
+<button
+class="memory"
+data-photo="images/photo1.jpg">
 
 <img
 src="images/photo1.jpg"
@@ -1093,7 +1396,9 @@ alt="Memory 1">
 </button>
 
 
-<button class="memory" data-photo="images/photo2.jpg">
+<button
+class="memory"
+data-photo="images/photo2.jpg">
 
 <img
 src="images/photo2.jpg"
@@ -1102,7 +1407,9 @@ alt="Memory 2">
 </button>
 
 
-<button class="memory" data-photo="images/photo3.jpg">
+<button
+class="memory"
+data-photo="images/photo3.jpg">
 
 <img
 src="images/photo3.jpg"
@@ -1111,7 +1418,9 @@ alt="Memory 3">
 </button>
 
 
-<button class="memory" data-photo="images/photo4.jpg">
+<button
+class="memory"
+data-photo="images/photo4.jpg">
 
 <img
 src="images/photo4.jpg"
@@ -1120,7 +1429,9 @@ alt="Memory 4">
 </button>
 
 
-<button class="memory" data-photo="images/photo5.jpg">
+<button
+class="memory"
+data-photo="images/photo5.jpg">
 
 <img
 src="images/photo5.jpg"
@@ -1129,7 +1440,9 @@ alt="Memory 5">
 </button>
 
 
-<button class="memory" data-photo="images/photo6.jpg">
+<button
+class="memory"
+data-photo="images/photo6.jpg">
 
 <img
 src="images/photo6.jpg"
@@ -1173,7 +1486,7 @@ Tera dil bahot saaf h. Sacchi bol raha hu, aisa nahi ki makhan laga raha hu. Rea
 
 <br><br>
 
-Bs itna hi bol sakta hu abhi to, baaki ye website banayi thoda express karne ke liye. I hope achhi lage. Again, happiest birthday Babu!❤️
+Bs itna hi bol sakta hu abhi to, baaki ye website banayi thoda express karne ke liye. I hope achhi lage. Again, happiest birthday Babu!❤️ Aur ha ye meri hi handwriting h thoda personal feel dene ke liye daali 😙
 
 </div>
 
@@ -1217,10 +1530,6 @@ May the years ahead be gentle, exciting and beautiful.
 },
 
 
-/* ==================================================
-   SECRET PAGE — VIDEO ADDED
-   ================================================== */
-
 secret:{
 
 title:"🔐",
@@ -1229,27 +1538,21 @@ sub:"You found something.",
 
 html:`
 
-<div class="note" style="text-align:center">
+<div
+class="note"
+style="text-align:center">
 
 Okay... this one is just between us. 👀
 
-<div class="secret-video-frame">
+<br><br>
 
-<video
-  class="secret-video"
-  controls
-  playsinline
-  preload="metadata">
+<b>
+.
+</b>
 
-<source
-  src="videos/secret.mp4"
-  type="video/mp4">
+<br><br>
 
-Your browser does not support this video.
 
-</video>
-
-</div>
 
 </div>
 
@@ -1260,19 +1563,19 @@ Your browser does not support this video.
 
 about:{
 
-title:"Why You ✨",
+title:" ✨",
 
-sub:"The part I couldn't fit into one birthday message.",
+sub:"",
 
 html:`
 
 <div class="note">
 
-You're important to me in ways that are difficult to put into a single paragraph.
+Kaisa laga Babu? I know is baar itni achhi nahi, but is baar maine time kam lagaya aur thoda experiment kiya. Sacchi jyada time nahi lagaya aur padhai ka time to bilkul bhi nahi.
 
 <br><br>
 
-So instead of making one long message, I made you a little world where every app holds a different piece of it. ♡
+Fir se happy birthday, Moti. I wish mai tujhe hug krke happy birthday bol pata.♡
 
 </div>
 
@@ -1317,42 +1620,54 @@ function openPage(pageName){
 
 
   const songs =
-    content.querySelectorAll("audio");
+    content.querySelectorAll(
+      "audio"
+    );
 
 
   songs.forEach(song=>{
 
-    song.addEventListener("play",function(){
+    song.addEventListener(
+      "play",
+      function(){
 
-      songs.forEach(other=>{
+        songs.forEach(other=>{
 
-        if(other !== song){
+          if(other !== song){
 
-          other.pause();
+            other.pause();
 
-        }
+          }
 
-      });
+        });
 
-    });
+      }
+    );
 
   });
 
 
   const memories =
-    content.querySelectorAll(".memory");
+    content.querySelectorAll(
+      ".memory"
+    );
 
 
   memories.forEach(memory=>{
 
-    memory.addEventListener("click",function(){
+    memory.addEventListener(
+      "click",
+      function(){
 
-      large.src =
-        memory.dataset.photo;
+        large.src =
+          memory.dataset.photo;
 
-      viewer.classList.add("show");
+        viewer.classList.add(
+          "show"
+        );
 
-    });
+      }
+    );
 
   });
 
@@ -1364,16 +1679,23 @@ function openPage(pageName){
    ================================================== */
 
 const appButtons =
-  document.querySelectorAll(".app");
+  document.querySelectorAll(
+    ".app"
+  );
 
 
 appButtons.forEach(button=>{
 
-  button.addEventListener("click",function(){
+  button.addEventListener(
+    "click",
+    function(){
 
-    openPage(button.dataset.page);
+      openPage(
+        button.dataset.page
+      );
 
-  });
+    }
+  );
 
 });
 
@@ -1383,29 +1705,41 @@ appButtons.forEach(button=>{
    ================================================== */
 
 const closeButton =
-  document.getElementById("close");
+  document.getElementById(
+    "close"
+  );
 
 
-closeButton.addEventListener("click",function(){
+closeButton.addEventListener(
+  "click",
+  function(){
 
-  modal.classList.remove("show");
-
-  gifRunning = true;
-
-});
-
-
-modal.addEventListener("click",function(event){
-
-  if(event.target === modal){
-
-    modal.classList.remove("show");
+    modal.classList.remove(
+      "show"
+    );
 
     gifRunning = true;
 
   }
+);
 
-});
+
+modal.addEventListener(
+  "click",
+  function(event){
+
+    if(event.target === modal){
+
+      modal.classList.remove(
+        "show"
+      );
+
+      gifRunning = true;
+
+    }
+
+  }
+);
 
 
 /* ==================================================
@@ -1413,16 +1747,23 @@ modal.addEventListener("click",function(event){
    ================================================== */
 
 const photoClose =
-  document.getElementById("photoClose");
+  document.getElementById(
+    "photoClose"
+  );
 
 
-photoClose.addEventListener("click",function(){
+photoClose.addEventListener(
+  "click",
+  function(){
 
-  viewer.classList.remove("show");
+    viewer.classList.remove(
+      "show"
+    );
 
-  large.src = "";
+    large.src = "";
 
-});
+  }
+);
 
 
 /* ==================================================
@@ -1431,7 +1772,9 @@ photoClose.addEventListener("click",function(){
 
 bg.muted = true;
 
-bg.play().catch(function(){});
+bg.play().catch(
+  function(){}
+);
 
 
 /* ==================================================
@@ -1441,53 +1784,71 @@ bg.play().catch(function(){});
 let muted = true;
 
 
-mute.addEventListener("click",function(event){
+mute.addEventListener(
+  "click",
+  function(event){
 
-  event.stopPropagation();
+    event.stopPropagation();
 
-  bg.muted =
-    !bg.muted;
+    bg.muted =
+      !bg.muted;
 
-  muted =
-    bg.muted;
+    muted =
+      bg.muted;
 
-  mute.textContent =
-    muted
-    ? "🔇"
-    : "🔊";
+    mute.textContent =
+      muted
+      ? "🔇"
+      : "🔊";
 
 
-  if(!muted){
+    if(!muted){
 
-    bg.play().catch(function(){});
+      bg.play().catch(
+        function(){}
+      );
 
-    musicHint.classList.add("hide");
+      /* Hide first-open message */
 
-    setTimeout(function(){
+      musicHint.classList.add(
+        "hide"
+      );
 
-      musicHint.style.display =
-        "none";
+      setTimeout(
+        function(){
 
-    },400);
+          musicHint.style.display =
+            "none";
+
+        },
+        400
+      );
+
+    }
 
   }
-
-});
+);
 
 
 /* ==================================================
    START MUSIC AFTER INTERACTION
    ================================================== */
 
-document.addEventListener("pointerdown",function(){
+document.addEventListener(
+  "pointerdown",
+  function(){
 
-  if(!muted){
+    if(!muted){
 
-    bg.play().catch(function(){});
+      bg.play().catch(
+        function(){}
+      );
 
-  }
+    }
 
-},{once:true});
+  },
+  {once:true}
+);
 
 
 /* ==================================================
@@ -1497,114 +1858,143 @@ document.addEventListener("pointerdown",function(){
 let lastTouch = 0;
 
 
-phone.addEventListener("pointerdown",function(event){
+phone.addEventListener(
+  "pointerdown",
+  function(event){
 
-  if(
-    event.target.closest("#muteBtn") ||
-    event.target.closest("audio") ||
-    event.target.closest(".app") ||
-    event.target.closest(".modal")
-  ){
+    if(
+      event.target.closest(
+        "#muteBtn"
+      ) ||
 
-    return;
+      event.target.closest(
+        "audio"
+      ) ||
 
-  }
+      event.target.closest(
+        ".app"
+      ) ||
 
+      event.target.closest(
+        ".modal"
+      )
+    ){
 
-  const now =
-    Date.now();
+      return;
 
-
-  if(now-lastTouch < 350){
-
-    return;
-
-  }
-
-
-  lastTouch = now;
-
-
-  const message =
-    document.createElement("div");
+    }
 
 
-  message.className =
-    "miss";
+    const now =
+      Date.now();
 
 
-  message.textContent =
-    "I miss you ♡";
+    if(
+      now-lastTouch < 350
+    ){
+
+      return;
+
+    }
 
 
-  message.style.left =
-    event.clientX+"px";
+    lastTouch = now;
 
 
-  message.style.top =
-    event.clientY+"px";
+    const message =
+      document.createElement(
+        "div"
+      );
 
 
-  document.body.appendChild(message);
+    message.className =
+      "miss";
 
 
-  setTimeout(function(){
-
-    message.remove();
-
-  },1400);
+    message.textContent =
+      "I miss you ♡";
 
 
-  if(!muted){
+    message.style.left =
+      event.clientX+"px";
 
-    bg.play().catch(function(){});
 
-  }
+    message.style.top =
+      event.clientY+"px";
 
-});
+
+    document.body.appendChild(
+      message
+    );
+
+
+    setTimeout(
+      function(){
+
+        message.remove();
+
+      },
+      1400
+    );
+
+
+    if(!muted){
+
+      bg.play().catch(
+        function(){}
+      );
+
+    }
+
+  });
 
 
 /* ==================================================
    RESIZE
    ================================================== */
 
-window.addEventListener("resize",function(){
+window.addEventListener(
+  "resize",
+  function(){
 
-  const size =
-    getGifSize();
-
-
-  const maxX =
-    Math.max(
-      0,
-      phone.clientWidth-size
-    );
+    const size =
+      getGifSize();
 
 
-  const maxY =
-    Math.max(
-      0,
-      phone.clientHeight-size
-    );
+    const maxX =
+      Math.max(
+        0,
+        phone.clientWidth-size
+      );
 
 
-  if(x > maxX){
+    const maxY =
+      Math.max(
+        0,
+        phone.clientHeight-size
+      );
 
-    x = maxX;
+
+    if(x > maxX){
+
+      x = maxX;
+
+    }
+
+
+    if(y > maxY){
+
+      y = maxY;
+
+    }
 
   }
-
-
-  if(y > maxY){
-
-    y = maxY;
-
-  }
-
-});
+);
 
 
 })();
 
-</script></body>
-     </html>
+</script>
+
+</body>
+</html>
