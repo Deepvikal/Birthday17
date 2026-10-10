@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>For Vaishnavi ♡</title>
-
-<style>
+<title>For Vaishnavi ♡</title><style>
 
 @font-face{
   font-family:"MyFont";
@@ -57,64 +54,42 @@ body{
 
 .music-hint{
   position:absolute;
-
   top:16px;
   left:50%;
-
   transform:translateX(-50%);
-
   z-index:30;
-
   width:calc(100% - 90px);
-
   padding:10px 14px;
-
   text-align:center;
-
   font-size:12px;
   font-weight:700;
-
   color:#fff;
-
   background:#00000080;
-
   border:1px solid #ffffff35;
-
   border-radius:18px;
-
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
-
   box-shadow:
     0 5px 20px #0005,
     inset 0 1px 1px #ffffff20;
-
-  animation:
-    hintPulse 1.8s ease-in-out infinite;
+  animation:hintPulse 1.8s ease-in-out infinite;
 }
 
 @keyframes hintPulse{
-
   0%,100%{
     opacity:.75;
     transform:translateX(-50%) translateY(0);
   }
-
   50%{
     opacity:1;
     transform:translateX(-50%) translateY(3px);
   }
-
 }
 
 .music-hint.hide{
   opacity:0;
   pointer-events:none;
-
-  transform:
-    translateX(-50%)
-    translateY(-10px);
-
+  transform:translateX(-50%) translateY(-10px);
   transition:.35s ease;
 }
 
@@ -127,37 +102,25 @@ body{
   position:absolute;
   inset:0;
   overflow:hidden;
-
   z-index:1;
-
   pointer-events:none;
   touch-action:none;
 }
 
 .falling-gif{
   position:absolute;
-
   left:0;
   top:0;
-
   width:96px;
   height:96px;
-
   object-fit:contain;
-
   pointer-events:none;
   user-select:none;
-
   opacity:0;
-
   transform-origin:center center;
-
   will-change:transform;
-
   filter:drop-shadow(0 5px 10px #0008);
-
   border-radius:20px;
-
   overflow:hidden;
 }
 
@@ -168,65 +131,37 @@ body{
 
 .love-message{
   position:absolute;
-
   z-index:5;
-
   pointer-events:none;
   user-select:none;
-
   white-space:nowrap;
-
   font-size:18px;
   font-weight:800;
-
   color:#fff;
-
   text-shadow:
     0 2px 10px #000,
     0 0 12px #ff8fc7;
-
   opacity:0;
-
-  transform:
-    translate(-50%,-50%)
-    scale(.75);
-
-  animation:
-    lovePop 1.4s ease forwards;
+  transform:translate(-50%,-50%) scale(.75);
+  animation:lovePop 1.4s ease forwards;
 }
 
 @keyframes lovePop{
-
   0%{
     opacity:0;
-
-    transform:
-      translate(-50%,-50%)
-      scale(.75);
+    transform:translate(-50%,-50%) scale(.75);
   }
-
   15%{
     opacity:1;
-
-    transform:
-      translate(-50%,-50%)
-      scale(1.08);
+    transform:translate(-50%,-50%) scale(1.08);
   }
-
   35%{
-    transform:
-      translate(-50%,-50%)
-      scale(1);
+    transform:translate(-50%,-50%) scale(1);
   }
-
   100%{
     opacity:0;
-
-    transform:
-      translate(-50%,-110px)
-      scale(1.05);
+    transform:translate(-50%,-110px) scale(1.05);
   }
-
 }
 
 
@@ -237,9 +172,7 @@ body{
 .content{
   position:relative;
   z-index:2;
-
   min-height:680px;
-
   padding:24px 18px 18px;
 }
 
@@ -300,26 +233,18 @@ body{
 .app{
   position:relative;
   z-index:3;
-
   border:1px solid #ffffff38;
   background:#ffffff24;
   color:#fff;
-
   border-radius:22px;
-
   padding:15px 7px;
-
   min-height:106px;
-
   cursor:pointer;
-
   backdrop-filter:blur(10px);
   -webkit-backdrop-filter:blur(10px);
-
   box-shadow:
     0 8px 25px #0004,
     inset 0 1px 1px #ffffff25;
-
   transition:.18s;
 }
 
@@ -346,15 +271,11 @@ body{
 
 .bottom{
   position:absolute;
-
   left:18px;
   right:18px;
   bottom:18px;
-
   text-align:center;
-
   font-size:12px;
-
   opacity:.75;
 }
 
@@ -365,20 +286,13 @@ body{
 
 .modal{
   position:absolute;
-
   inset:0;
-
   background:#00000055;
-
   backdrop-filter:blur(3px);
   -webkit-backdrop-filter:blur(3px);
-
   z-index:10;
-
   display:none;
-
   align-items:flex-end;
-
   padding:10px;
 }
 
@@ -388,60 +302,41 @@ body{
 
 .sheet{
   width:100%;
-
   max-height:88%;
-
   overflow:auto;
-
   background:#ffffff20;
-
   color:#fff;
-
   border:1px solid #ffffff38;
-
   border-radius:28px;
-
   padding:22px;
-
   backdrop-filter:blur(20px) saturate(130%);
   -webkit-backdrop-filter:blur(20px) saturate(130%);
-
   box-shadow:
     0 10px 40px #0005,
     inset 0 1px 1px #ffffff35;
-
   animation:up .25s ease;
 }
 
 @keyframes up{
-
   from{
     transform:translateY(35px);
     opacity:0;
   }
-
   to{
     transform:translateY(0);
     opacity:1;
   }
-
 }
 
 .close,
 .photo-close{
   border:0;
-
   background:#ffffffcc;
-
   color:#241c22;
-
   border-radius:50%;
-
   width:40px;
   height:40px;
-
   font-size:20px;
-
   cursor:pointer;
 }
 
@@ -451,9 +346,7 @@ body{
 
 h2{
   font-size:25px;
-
   margin:3px 45px 7px 0;
-
   text-shadow:0 2px 10px #0006;
 }
 
@@ -469,26 +362,19 @@ h2{
 
 .note{
   background:#ffffff18;
-
   border:1px solid #ffffff25;
-
   color:#fff;
-
   border-radius:20px;
-
   padding:18px;
-
   margin-top:17px;
-
   line-height:1.75;
-
   font-size:15px;
-
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
-
   box-shadow:inset 0 1px 1px #ffffff20;
 }
+
+
 /* SECRET PAGE VIDEO */
 
 .secret-video-frame{
@@ -511,32 +397,25 @@ h2{
   background:#000;
 }
 
+
 /* ==================================================
    SONGS
    ================================================== */
 
 .songs{
   display:grid;
-
   gap:11px;
-
   margin-top:18px;
 }
 
 .song{
   background:#00000045;
-
   border:1px solid #ffffff25;
-
   color:#fff;
-
   border-radius:18px;
-
   padding:15px;
-
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
-
   box-shadow:inset 0 1px 1px #ffffff15;
 }
 
@@ -560,29 +439,19 @@ h2{
 
 .memory-grid{
   display:grid;
-
   grid-template-columns:repeat(2,1fr);
-
   gap:10px;
-
   margin-top:17px;
 }
 
 .memory{
   border:1px solid #ffffff30;
-
   padding:0;
-
   height:150px;
-
   border-radius:18px;
-
   overflow:hidden;
-
   cursor:pointer;
-
   background:#ffffff18;
-
   backdrop-filter:blur(10px);
   -webkit-backdrop-filter:blur(10px);
 }
@@ -590,11 +459,8 @@ h2{
 .memory img{
   width:100%;
   height:100%;
-
   object-fit:cover;
-
   display:block;
-
   transition:.2s;
 }
 
@@ -613,16 +479,13 @@ h2{
 
 .heart{
   font-size:50px;
-
   animation:pulse 1.4s infinite;
 }
 
 @keyframes pulse{
-
   50%{
     transform:scale(1.12);
   }
-
 }
 
 
@@ -632,19 +495,12 @@ h2{
 
 .photo-viewer{
   position:absolute;
-
   inset:0;
-
   background:#000eb;
-
   z-index:20;
-
   display:none;
-
   align-items:center;
-
   justify-content:center;
-
   padding:18px;
 }
 
@@ -655,21 +511,16 @@ h2{
 .photo-viewer img{
   width:auto;
   height:auto;
-
   max-width:100%;
   max-height:80%;
-
   object-fit:contain;
-
   border-radius:16px;
 }
 
 .photo-close{
   position:absolute;
-
   top:18px;
   right:18px;
-
   background:#fff;
 }
 
@@ -680,46 +531,28 @@ h2{
 
 .miss{
   position:fixed;
-
   transform:translate(-50%,-50%);
-
   z-index:50;
-
   pointer-events:none;
-
   font-weight:800;
-
   font-size:22px;
-
   color:#fff;
-
   text-shadow:0 3px 18px #000;
-
   animation:miss 1.35s ease forwards;
 }
 
 @keyframes miss{
-
   0%{
     opacity:0;
-
-    transform:
-      translate(-50%,-50%)
-      scale(.8);
+    transform:translate(-50%,-50%) scale(.8);
   }
-
   15%{
     opacity:1;
   }
-
   100%{
     opacity:0;
-
-    transform:
-      translate(-50%,-100%)
-      scale(1.08);
+    transform:translate(-50%,-100%) scale(1.08);
   }
-
 }
 
 
@@ -749,244 +582,128 @@ h2{
   .falling-gif{
     width:87px;
     height:87px;
-
     border-radius:18px;
   }
 
 }
 
-</style>
-</head>
+</style></head><body><div class="phone" id="phone">
 
+<!-- FIRST OPEN MESSAGE -->
 
-<body>
-
-
-<div class="phone" id="phone">
-
-
-<!-- ==================================================
-     FIRST OPEN MESSAGE
-     ================================================== -->
-
-<div
-  class="music-hint"
-  id="musicHint">
-
+<div class="music-hint" id="musicHint">
 🎵 Tap 🔇 above to turn on the birthday song ♡
-
 </div>
 
-
-<!-- ==================================================
-     GIF ANIMATION LAYER
-     ================================================== -->
+<!-- GIF ANIMATION LAYER -->
 
 <div class="gif-layer" id="gifLayer">
-
 <img
   id="fallingGif"
   class="falling-gif"
   src=""
   alt=""
-  draggable="false"
->
-
+  draggable="false">
 </div>
 
-
-<!-- ==================================================
-     MAIN CONTENT
-     ================================================== -->
+<!-- MAIN CONTENT -->
 
 <div class="content">
 
+  <div class="top">
+    <div>
+      <div class="hello">
+        A little world made for
+      </div>
+      <div class="name">
+        Vaishnavi ♡
+      </div>
+    </div>
 
-<div class="top">
+    <button class="mute" id="muteBtn">
+      🔇
+    </button>
+  </div>
 
-<div>
+  <div class="center">
+    <h1>
+      Happy Birthday to you Babu 💌
+    </h1>
+    <p></p>
+  </div>
 
-<div class="hello">
-A little world made for
-</div>
+  <!-- APPS -->
 
-<div class="name">
-Vaishnavi ♡
-</div>
+  <div class="apps">
 
-</div>
+    <button class="app" data-page="notes">
+      <div class="icon">💌</div>
+      <span></span>
+    </button>
 
+    <button class="app" data-page="wishes">
+      <div class="icon">🤞</div>
+      <span></span>
+    </button>
 
-<button
-  class="mute"
-  id="muteBtn">
+    <button class="app" data-page="music">
+      <div class="icon">🎶</div>
+      <span></span>
+    </button>
 
-🔇
+    <button class="app" data-page="memories">
+      <div class="icon">📷</div>
+      <span></span>
+    </button>
 
-</button>
+    <button class="app" data-page="about">
+      <div class="icon">🐼</div>
+      <span></span>
+    </button>
 
-</div>
+    <button class="app" data-page="secret">
+      <div class="icon">😶‍🌫️</div>
+      <span></span>
+    </button>
 
+  </div>
 
-<div class="center">
-
-<h1>
-Happy Birthday to you Babu 💌
-</h1>
-
-<p>
-</p>
-
-</div>
-
-
-<!-- APPS -->
-
-<div class="apps">
-
-
-<button
-  class="app"
-  data-page="notes">
-
-<div class="icon">
-💌
-</div>
-
-<span></span>
-
-</button>
-
-
-<button
-  class="app"
-  data-page="wishes">
-
-<div class="icon">
-🤞
-</div>
-
-<span></span>
-
-</button>
-
-
-<button
-  class="app"
-  data-page="music">
-
-<div class="icon">
-🎶
-</div>
-
-<span></span>
-
-</button>
-
-
-<button
-  class="app"
-  data-page="memories">
-
-<div class="icon">
-📷
-</div>
-
-<span></span>
-
-</button>
-
-
-<button
-  class="app"
-  data-page="about">
-
-<div class="icon">
-🐼
-</div>
-
-<span></span>
-
-</button>
-
-
-<button
-  class="app"
-  data-page="secret">
-
-<div class="icon">
-😶‍🌫️
-</div>
-
-<span></span>
-
-</button>
-
+  <div class="bottom">
+    I really miss you moti ♡
+  </div>
 
 </div>
 
+<!-- APP MODAL -->
 
-<div class="bottom">
-I really miss you moti ♡
+<div class="modal" id="modal">
+  <div class="sheet">
+
+    <button class="close" id="close">
+      ×
+    </button>
+
+    <div id="content"></div>
+
+  </div>
 </div>
 
+<!-- PHOTO VIEWER -->
 
-</div>
+<div class="photo-viewer" id="photoViewer">
 
+  <button class="photo-close" id="photoClose">
+    ×
+  </button>
 
-<!-- ==================================================
-     APP MODAL
-     ================================================== -->
-
-<div
-  class="modal"
-  id="modal">
-
-<div class="sheet">
-
-<button
-  class="close"
-  id="close">
-
-×
-
-</button>
-
-<div id="content"></div>
-
-</div>
+  <img
+    id="largePhoto"
+    src=""
+    alt="Memory">
 
 </div>
 
-
-<!-- ==================================================
-     PHOTO VIEWER
-     ================================================== -->
-
-<div
-  class="photo-viewer"
-  id="photoViewer">
-
-<button
-  class="photo-close"
-  id="photoClose">
-
-×
-
-</button>
-
-<img
-  id="largePhoto"
-  src=""
-  alt="Memory"
->
-
-</div>
-
-
-<!-- ==================================================
-     BACKGROUND MUSIC
-     ================================================== -->
+<!-- BACKGROUND MUSIC -->
 
 <audio
   id="backgroundMusic"
@@ -994,15 +711,13 @@ I really miss you moti ♡
   autoplay
   muted>
 
-<source
-  src="music/background.mp3"
-  type="audio/mpeg">
+  <source
+    src="music/background.mp3"
+    type="audio/mpeg">
 
 </audio>
 
-
 </div>
-
 
 <script>
 
@@ -1041,6 +756,55 @@ const fallingGif =
 
 const musicHint =
   document.getElementById("musicHint");
+
+
+/* ==================================================
+   BACKGROUND MUSIC STATE
+   ================================================== */
+
+let muted = true;
+
+let backgroundResumeAllowed = true;
+
+
+/* ==================================================
+   APP MEDIA CONTROL
+   ================================================== */
+
+function isAppMediaPlaying(){
+
+  const media =
+    content.querySelectorAll("audio, video");
+
+  return Array.from(media).some(function(item){
+
+    return !item.paused && !item.ended;
+
+  });
+
+}
+
+
+function pauseBackgroundMusic(){
+
+  bg.pause();
+
+}
+
+
+function resumeBackgroundMusic(){
+
+  if(
+    !muted &&
+    backgroundResumeAllowed &&
+    !isAppMediaPlaying()
+  ){
+
+    bg.play().catch(function(){});
+
+  }
+
+}
 
 
 /* ==================================================
@@ -1556,24 +1320,39 @@ Aise din mujhe ye baate nahi karni chahiye na, bs yahi tha, baate to bahot yahan
 
 
 secret:{
-  title:"🔐",
-  sub:"You found something.",
-  html:`
-    <div class="note" style="text-align:center">
-      Okay... this one is just between us. 👀
 
-      <div class="secret-video-frame">
-        <video
-          class="secret-video"
-          controls
-          playsinline
-          preload="metadata">
-          <source src="videos/secret.mp4" type="video/mp4">
-          Your browser does not support this video.
-        </video>
-      </div>
-    </div>
-  `
+title:"🔐",
+
+sub:"You found something.",
+
+html:`
+
+<div class="note" style="text-align:center">
+
+Okay... this one is just between us. 👀
+
+<div class="secret-video-frame">
+
+<video
+class="secret-video"
+controls
+playsinline
+preload="metadata">
+
+<source
+src="videos/secret.mp4"
+type="video/mp4">
+
+Your browser does not support this video.
+
+</video>
+
+</div>
+
+</div>
+
+`
+
 },
 
 
@@ -1598,6 +1377,7 @@ Fir se happy birthday, Moti. I wish mai tujhe hug krke happy birthday bol pata.�
 `
 
 }
+
 };
 
 
@@ -1633,6 +1413,73 @@ function openPage(pageName){
 
 
   gifRunning = false;
+
+
+  /* ==================================================
+     APP SONG AND VIDEO CONTROL
+     ================================================== */
+
+  const mediaItems =
+    content.querySelectorAll(
+      "audio, video"
+    );
+
+
+  mediaItems.forEach(function(mediaItem){
+
+    mediaItem.addEventListener(
+      "play",
+      function(){
+
+        backgroundResumeAllowed = true;
+
+        /* Pause background music while app media plays. */
+
+        pauseBackgroundMusic();
+
+
+        /* Pause other songs/videos. */
+
+        mediaItems.forEach(function(otherMedia){
+
+          if(otherMedia !== mediaItem){
+
+            otherMedia.pause();
+
+          }
+
+        });
+
+      }
+    );
+
+
+    function handleMediaStopped(){
+
+      setTimeout(function(){
+
+        if(!isAppMediaPlaying()){
+
+          resumeBackgroundMusic();
+
+        }
+
+      },0);
+
+    }
+
+
+    mediaItem.addEventListener(
+      "pause",
+      handleMediaStopped
+    );
+
+    mediaItem.addEventListener(
+      "ended",
+      handleMediaStopped
+    );
+
+  });
 
 
   const songs =
@@ -1730,11 +1577,38 @@ closeButton.addEventListener(
   "click",
   function(){
 
+    /* Stop all app media before closing the app. */
+
+    content.querySelectorAll("audio, video").forEach(
+      function(mediaItem){
+
+        mediaItem.pause();
+
+      }
+    );
+
+
+    /* Allow background music to resume automatically. */
+
+    backgroundResumeAllowed = true;
+
+    bg.pause();
+
+
     modal.classList.remove(
       "show"
     );
 
     gifRunning = true;
+
+
+    /* Resume background music after closing the app. */
+
+    setTimeout(function(){
+
+      resumeBackgroundMusic();
+
+    },0);
 
   }
 );
@@ -1746,11 +1620,38 @@ modal.addEventListener(
 
     if(event.target === modal){
 
+      /* Stop all app media before closing the app. */
+
+      content.querySelectorAll("audio, video").forEach(
+        function(mediaItem){
+
+          mediaItem.pause();
+
+        }
+      );
+
+
+      /* Allow background music to resume automatically. */
+
+      backgroundResumeAllowed = true;
+
+      bg.pause();
+
+
       modal.classList.remove(
         "show"
       );
 
       gifRunning = true;
+
+
+      /* Resume background music after closing the app. */
+
+      setTimeout(function(){
+
+        resumeBackgroundMusic();
+
+      },0);
 
     }
 
@@ -1797,9 +1698,6 @@ bg.play().catch(
    MUTE BUTTON
    ================================================== */
 
-let muted = true;
-
-
 mute.addEventListener(
   "click",
   function(event){
@@ -1820,9 +1718,19 @@ mute.addEventListener(
 
     if(!muted){
 
-      bg.play().catch(
-        function(){}
-      );
+      /* Manually enabling music allows it to play again. */
+
+      backgroundResumeAllowed = true;
+
+
+      if(!isAppMediaPlaying()){
+
+        bg.play().catch(
+          function(){}
+        );
+
+      }
+
 
       /* Hide first-open message */
 
@@ -1854,7 +1762,11 @@ document.addEventListener(
   "pointerdown",
   function(){
 
-    if(!muted){
+    if(
+      !muted &&
+      backgroundResumeAllowed &&
+      !isAppMediaPlaying()
+    ){
 
       bg.play().catch(
         function(){}
@@ -1885,6 +1797,10 @@ phone.addEventListener(
 
       event.target.closest(
         "audio"
+      ) ||
+
+      event.target.closest(
+        "video"
       ) ||
 
       event.target.closest(
@@ -1954,7 +1870,11 @@ phone.addEventListener(
     );
 
 
-    if(!muted){
+    if(
+      !muted &&
+      backgroundResumeAllowed &&
+      !isAppMediaPlaying()
+    ){
 
       bg.play().catch(
         function(){}
@@ -2010,7 +1930,5 @@ window.addEventListener(
 
 })();
 
-</script>
-
-</body>
+</script></body>
 </html>
